@@ -1,0 +1,74 @@
+.feature-scroller-slides {
+  $animDuration: 1.17s;
+  $maskBaseHeight: 158px;
+  height: 600vh;
+  width: 100vw;
+  position: relative;
+  z-index: 2;
+  .logo-bg {
+    position: absolute;
+    z-index: 2;
+    transform-origin: top left;
+    width: 134px;
+    height: 158px;
+    display: flex;
+    @include bpMedium {
+      width: scaleVal(134);
+      height: scaleVal(158);
+    }
+  }
+  &__progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    width: 56px;
+    bottom: 20px;
+    left: 20px;
+    @include bpMedium {
+      width: scaleVal(74);
+      bottom: scaleVal(48);
+      left: scaleVal(48);
+    }
+  }
+  &__content {
+    top: -10vh;
+    position: sticky;
+    margin-top: -100vh;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    mask-image: url(../../../assets/icons/logo-mask.svg);
+    mask-size: auto $maskBaseHeight;
+    mask-repeat: no-repeat;
+    @include bpMedium {
+      will-change: mask-position, mask-size, transform;
+      backface-visibility: hidden;
+    }
+    overflow: hidden;
+    &__wrapper {
+      width: 100%;
+      height: 100%;
+      mask-position: 0% 0%;
+      position: relative;
+      transform: scale(1.3);
+      pointer-events: none;
+      @include bpMedium {
+        will-change: clip-path, transform;
+      }
+      .copper-bg {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: $copperGradient;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+    }
+  }
+}

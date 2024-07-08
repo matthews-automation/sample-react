@@ -1,0 +1,13 @@
+.blog-hero {
+    flex-direction: column-reverse;
+    background: $offwhiteGradientReverse;
+    @include bpMedium {
+        flex-direction: row;
+    }
+    .lx {
+        margin-bottom: 48px;
+        @include bpMedium {
+            margin-bottom: 0;
+        }
+    }
+}

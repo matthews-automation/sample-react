@@ -1,0 +1,23 @@
+.contact {
+  > .container {
+    padding: 40px 0;
+    @include bpMedium {
+      padding: scale(72) 0;
+    }
+  }
+  &__wysiwiyg {
+    .blog-section {
+      margin-bottom: 0;
+      .row {
+        padding: 0;
+      }
+      .title-col {
+        display: none;
+      }
+      .content-col {
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+}

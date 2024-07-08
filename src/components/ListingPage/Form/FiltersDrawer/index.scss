@@ -1,0 +1,258 @@
+.filters-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: $lighter-gray;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms $authenticMotion;
+  &.open {
+    opacity: 1;
+    pointer-events: initial;
+  }
+  &.resize { transition: none; }
+  @include bpMedium {
+    opacity: 1;
+    pointer-events: initial;
+    padding: 0 scaleVal(20);
+    position: absolute;
+    transform: translateX(-100%);
+    left: scaleVal(48, null, -1);
+    width: 342px;
+    height: 100%;
+    transition: transform 400ms $authenticMotion;
+    &.open {
+      transform: translateX(0);
+    }
+    &.resize { transition: none; }
+  }
+  @include bpXLarge {
+    padding: 0px 48px;
+  }
+ 
+  &__modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    @include bpMedium {
+      display: none;
+    }
+    .subtitle-3 {
+      margin: {
+        top: 28px;
+        bottom: 28px;
+        left: auto;
+      }
+    }
+    .icon-button {
+      margin-left: auto;
+      color: $black;
+      width: 24px;
+      height: 24px;
+      background: $black-20;
+      svg {
+        width: 10px;
+      }
+    }
+  }
+  &__bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background: $white;
+    @include bpMedium {
+      position: static;
+      background: none;
+      padding: 0;
+      .apply-button {
+        display: none;
+      }
+    }
+    .apply-button {
+      width: 100%;
+      padding: 23px 32px;
+      background: $black;
+      color: $white;
+      font-family: $headlineFont;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 1000px;
+      &:disabled {
+        background: $black-20;
+        pointer-events: none;
+      }
+    }
+  }
+  .reset-button {
+    color: $black;
+    background: none;
+    font-family: $headlineFont;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: color 300ms $authenticMotion;
+    flex-shrink: 0;
+    @include bpMedium {
+      margin-top: 24px;
+    }
+    @include onHover {
+      color: $copper;
+    }
+    &.disabled {
+      color: $black-20;
+      pointer-events: none;
+    }
+  }
+  .search {
+    margin: 0 0 24px;
+    padding: 0 20px;
+    @include bpMedium {
+      margin: 48px 0 24px;
+      padding: 0;
+    }
+    &__wrapper {
+      position: relative;
+      .icon {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        display: flex;
+        svg {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      background: transparent;
+      border: 1px solid $black;
+      border-radius: 12px;
+      color: $black;
+      &::placeholder {
+        color: $black-40;
+      }
+    }
+  }
+  .filter-button.drawer {
+    padding: 12px 0;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: 1px solid $black-10;
+    border-radius: 0;
+    display: none;
+    @include bpMedium {
+      display: flex;
+    }
+    @include onHover {
+      background: $lighter-gray;
+      color: $copper;
+      .icon {
+        transform: translateX(-4px);
+      }
+    }
+    .icon {
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  &__accordions {
+    padding: 0 20px;
+    @include bpMedium {
+      padding: 0;
+    }
+    .content-type {
+      @include ListingPageBP {
+        display: none;
+      }
+    }
+    .sort-by {
+      @include bpMedium {
+        display: none;
+      }
+    }
+    .accordion-item {
+      padding: 12px 0;
+      .title {
+        @include Body;
+      }
+    }
+    .term-accordion-content {
+      padding: 12px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      .term-accordion-button {
+        padding: 12px 16px;
+        background: rgba($black, 0);
+        border: 1px solid $black;
+        border-radius: 500px;
+        text-transform: capitalize;
+        transition: background 300ms $authenticMotion, color 300ms $authenticMotion;
+        @include bpMedium {
+          padding: 6px 12px;
+        }
+        @include onHover {
+          background: $black-10;
+        }
+        &.radio {
+          width: 100%;
+          text-align: left;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .circle {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid $black;
+            border-radius: 50%;
+            position: relative;
+            transition: border-color 300ms $authenticMotion;
+            &::after {
+              content: "";
+              display: block;
+              width: 4px;
+              height: 4px;
+              background: $white;
+              border-radius: 50%;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+          &.active {
+            .circle {
+              border-color: $white;
+            }
+          }
+        }
+        &.active {
+          background: $black;
+          color: $white;
+          @include onHover {
+            background: $black;
+          }
+        }
+      }
+    }
+  }
+}

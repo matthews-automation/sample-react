@@ -1,0 +1,12 @@
+.feature-scroller-mobile {
+  display: flex;
+  &__slides {
+    display: flex;
+    flex-direction: column;
+    .feature-scroller-slide {
+      position: static;
+      height: 750px;
+      width: 100%;
+    }
+  }
+}

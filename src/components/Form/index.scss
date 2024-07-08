@@ -1,0 +1,103 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  @include bpMedium {
+    gap: 0 scaleVal(8);
+  }
+  &__success {
+    border-top: 10px solid $success;
+    background: $lighter-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0 100px;
+    @include bpMedium {
+      border-top: scaleVal(10) solid $success;
+      padding: scaleVal(119) scaleVal(247) scaleVal(212);
+    }
+    .content {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .subtitle-3 {
+        margin: 0;
+        margin-bottom: 20px;
+        @include bpMedium {
+          margin-bottom: scaleVal(20);
+        }
+      }
+      .icon {
+        max-width: 80px;
+        margin-bottom: 32px;
+        @include bpMedium {
+          max-width: scaleVal(108);
+          margin-bottom: scaleVal(32);
+        }
+      }
+    }
+  }
+  .form-input, .form-select, .form-text-area, .form-phone {
+    margin-bottom: 16px;
+    &.error {
+      label {
+        color: $error;
+      }
+    }
+  }
+  .form-input, .form-select, .form-text-area, .form-phone {
+    &.error {
+      input, textarea {
+        border-color: $error;
+      }
+    }
+  }
+  .form-phone {
+    &.error {
+      .form-phone__input {
+        border-color: $error;
+      }
+    }
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    transition: color 300ms $authenticMotion;
+    @include bpMedium {
+      margin-bottom: scaleVal(8);
+    }
+  }
+  input, .form-phone__input, textarea {
+    transition: border-color 300ms $authenticMotion;
+  }
+  &__submit {
+    position: relative;
+    margin-top: 44px;
+    &__error {
+      white-space: nowrap;
+      position: absolute;
+      transform: translateY(-100%);
+      color: $error;
+      top: -16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 300ms opacity $authenticMotion;
+      &.visible {
+        opacity: 1;
+      }
+      @include bpMedium {
+        top: -scaleVal(16);
+      }
+    }
+  }
+  .focused {
+    input, .form-phone__input, textarea {
+      border-color: $copper;
+    }
+    label {
+      color: $copper;
+    }
+  }
+}

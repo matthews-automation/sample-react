@@ -1,0 +1,280 @@
+:root {
+  --target: 0;
+  --debug-value: "bp default";
+  --debug-color: darkgray;
+  --header-height: 80px;
+}
+
+@include bpMedium {
+  :root {
+    --target: 1440;
+    --debug-value: "bpMedium";
+    --debug-color: red;
+    --header-height: scaleVal(80);
+  }
+}
+@include bpLarge {
+  // Screen size is greater than 768
+  :root {
+    --debug-value: "bpLarge";
+    --debug-color: limegreen;
+  }
+}
+@include bpXLarge {
+  // Screen size is greater than 768
+  :root {
+    --debug-value: "bpXLarge";
+    --debug-color: cyan;
+  }
+}
+
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $headlineFont;
+    font-weight: 600;
+  }
+  p,
+  li,
+  a {
+    font-family: $bodyFont;
+    margin: 0;
+  }
+
+  /* Set line-height for
+   * .display-1 through .display-6 */
+  @for $i from 1 through 6 {
+    .display-#{$i} {
+      line-height: 1;
+    }
+  }
+
+  .display-1 {
+    font-size: 72px;
+    @include bpMedium {
+      font-size: scaleVal(100)
+    }
+  }
+  .display-2 {
+    font-size: 60px;
+    @include bpMedium {
+      font-size: scaleVal(80);
+    }
+  }
+  .display-3 {
+    font-size: 49px;
+    @include bpMedium {
+      font-size: scaleVal(63);
+    }
+  }
+  .display-4 {
+    font-size: 41px;
+    @include bpMedium {
+      font-size: scaleVal(50);
+    }
+  }
+  .display-5 {
+    font-size: 34px;
+    @include bpMedium {
+      font-size: scaleVal(40);
+    }
+  }
+
+  .eyebrow {
+    font-family: $headlineFont;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    @include bpMedium {
+      font-size: scaleVal(14);
+    }
+  }
+
+  .subtitle-1 {
+    font-family: $bodyFont;
+    font-size: 41px;
+    font-weight: 500;
+    line-height: 1.2;
+    @include bpMedium {
+      font-size: scaleVal(50);
+    }
+  }
+
+  .subtitle-2 {
+    font-family: $bodyFont;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    line-height: normal;
+    @include bpMedium {
+      font-size: scaleVal(40);
+    }
+  }
+
+  .subtitle-3 {
+    font-family: $bodyFont;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 20px 0;
+    @include bpMedium {
+      margin: 30px 0;
+      font-size: scaleVal(32);
+    }
+  }
+
+  .subtitle-4 {
+    font-family: $bodyFont;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    @include bpMedium {
+      font-size: scaleVal(26);
+
+    }
+  }
+
+  .subtitle-5 {
+    font-family: $bodyFont;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    @include bpMedium {
+      font-size: scaleVal(20);
+    }
+  }
+
+
+  .blog-paragraph {
+    font-family: $bodyFont;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    line-height: normal;
+    @include bpMedium {
+      font-size: scaleVal(32);
+    }
+  }
+
+  .body {
+    font-family: $bodyFont;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    @include bpMedium {
+      font-size: scaleVal(16);
+    }
+  }
+  .body-small {
+    font-family: $bodyFont;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    @include bpMedium {
+      font-size: scaleVal(14);
+    }
+  }
+  .body-medium {
+    font-family: $bodyFont;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    @include bpMedium {
+      font-size: scaleVal(16);
+    }
+  }
+  .body-large {
+    font-family: $bodyFont;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    @include bpMedium {
+      font-size: scaleVal(20);
+    }
+  }
+
+  .button-small {
+    font-family: $headlineFont;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    @include bpMedium {
+      font-size: scaleVal(14);
+    }
+  }
+
+  .button-large {
+    font-family: $headlineFont;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    @include bpMedium {
+      font-size: scaleVal(16);
+    }
+  }
+
+  .tag {
+    font-family: $headlineFont;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    @include bpMedium {
+      font-size: scaleVal(10);
+    }
+    &--large {
+      font-size: 12px;
+      @include bpMedium {
+        font-size: scaleVal(12);
+      }
+    }
+  }
+
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .button-text {
+    font-weight: 600;
+    font-family: $headlineFont;
+    white-space: nowrap;
+  }
+  .gradient-text-wrapper {
+    position: relative;
+    display: inline-block;
+    .normal-text {
+      top: 0;
+      left: 0;
+      position: absolute;
+      line-height: 1;
+    }
+    .gradient-text {
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      line-height: 1;
+    }
+  }
+
+  .gradient-text {
+    @include GradientText;
+  }
+}
+
+.white-page {
+  background-color: $white;
+}
+
+.opacity-70 {
+  opacity: 70%;
+}

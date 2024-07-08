@@ -1,0 +1,81 @@
+.link-listing-link {
+    width: 100%;
+    margin: 0 20px;
+    padding: 24px 0;
+    @include bpMedium {
+        margin: 0 scaleVal(48);
+        padding: scaleVal(32) 0;
+    }
+    border-bottom: 1px solid #0000001b;
+    color: black;
+    transition: background 300ms $authenticMotion;
+
+    .zoomed_content, .zoomed_img {
+        transition: width 0.3s $authenticMotion;
+    }
+    .title, .link {
+        transition: margin 0.3s $authenticMotion;
+    }
+    .zoomed_img {
+        width: 75%;
+    }
+    @include onHover {
+        background-color: #F5F5F5; 
+        .link-button::before {
+            opacity: 1;
+        }
+        .zoomed_img {
+            width: 100%;
+        }
+        .title, .link {
+            margin-left: 20%;
+        }
+      }
+    
+    p.link {
+        margin-top: 12px;
+        @include bpMedium {
+            margin-top: 0;
+        }
+    }
+
+    .link-button {
+        background-color: $black;
+        padding: 6px;
+        border-radius: 1000px;
+        gap: 8px;
+        transition: background 300ms $authenticMotion;
+        width: 24px;
+        height: 24px;
+        @include bpMedium {
+            width: scaleVal(24);
+            height: scaleVal(24);
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: opacity 300ms $authenticMotion;
+            background: $copperGradient;
+            z-index: 1;
+            opacity: 0;
+        }
+        svg {
+            color: white;
+            transition: color 0.4s ease;
+            width: 10px;
+            height: 10px;
+            position: relative;
+            z-index: 2;
+            @include bpMedium {
+                width: scaleVal(10);
+                height: scaleVal(10);
+            }
+        }
+      }
+}

@@ -1,0 +1,45 @@
+.gradient-button {
+  position: relative;
+  padding: 16px 24px;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: $black;
+  transition: color 300ms $authenticMotion;
+  @include bpMedium {
+    padding: scaleVal(16) scaleVal(24);
+    font-size: scaleVal(14);
+  }
+  @include onHover {
+    color: $black;
+    &::after {
+      opacity: 1;
+    }
+  }
+  &::after, &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $copperGradient;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 300ms $authenticMotion;
+  }
+  &::before {
+    background: none;  
+    border: 1px solid transparent;
+    background: $copperGradient border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 1;
+  }
+  
+}

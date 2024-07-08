@@ -1,0 +1,29 @@
+.threeup {
+  @include bpMedium {
+    .sticky {
+      position: sticky;
+      top: scaleVal(80);
+      width: 100%;
+      transition: top 0.3s ease-in-out;
+      padding: scaleVal(10) 0 scaleVal(20);
+    }
+  }
+  .inline-video {
+    &__controls {
+      @include bpMedium {
+        padding: scaleVal(8) scaleVal(16) scaleVal(16);
+      }
+      .time {
+        @include bpMedium {
+          font-size: scaleVal(16);
+        }
+      }
+      .icon-button {
+        @include bpMedium {
+          width: scaleVal(32);
+          height: scaleVal(32);
+        }
+      }
+    }
+  }
+}

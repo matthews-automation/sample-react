@@ -1,0 +1,182 @@
+.webgl-hero {
+  width: 100%;
+  height: auto;
+  @include bpMedium {
+    height: 100vh;
+  }
+  &.hidden {
+    .webgl-hero__content {
+      display: none;
+    }
+  }
+  .video-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $black-70;
+    z-index: 2;
+  }
+  &__spline, &__fallback, &__static {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__fallback {
+    z-index: 1;
+    display: none;
+    .small {
+      @include bpMedium { display: none; }
+    }
+    .large {
+      display: none;
+      @include bpMedium { display: block; }
+    }
+    &.visible {
+      display: block;
+    }
+  }
+
+  &__spline {
+    min-height: calc(100vw * 0.33);
+  }
+  &__content {
+    position: relative;
+    height: auto;
+    width: 100%;
+    display: flex;
+    @include bpMedium {
+      top: 0;
+      position: fixed;
+      left: 0;
+      height: 100vh;
+    }
+    .progress-overlay {
+      display: none;
+      @include bpMedium {
+        display: block;
+      }
+    }
+  }
+  &__text-container {
+    color: $white;
+    padding: 124px 0 48px;
+
+    position: relative;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+
+    @include bpMedium {
+       padding: scaleVal(80) 0 0;
+    }
+
+    .offscreen {
+      position: absolute;
+      max-width: 100%;
+      left: -8000px;
+      transform: translate3d(-8000px, 0, 0);
+    }
+
+    .display-1 {
+      text-transform: uppercase;
+      @include bpMedium {
+        max-width: 80%;
+      }
+    }
+    .row {
+      justify-content: end;
+      flex-direction: column;
+      @include bpMedium {
+        justify-content: flex-start;
+        flex-direction: row;
+      }
+      .header-col {
+        position: relative;
+        text-transform: uppercase;
+        h1 {
+          max-width: 100%;
+        }
+        @include bpMedium {
+          margin-top: auto;
+        }
+      }
+      .row-bottom {
+        width: 100%;
+        margin-top: 24px;
+        justify-content: space-between;
+        align-items: flex-end;
+        z-index: 3;
+        padding-bottom: 20px;
+        opacity: 1;
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+        &.hidden {
+          opacity: 0;
+          transform: translate3d(0, 20px, 0);
+        }
+        .copy-col {
+          position: relative;
+        }
+        .inline-button {
+          pointer-events: auto;
+          z-index: 4;
+          .inline-button-wrap {
+            @include bpMedium {
+              margin-bottom: scaleVal(24, null, -1);
+            }
+          }
+        }
+        @include bpMedium {
+          margin-top: auto;
+          display: flex;
+          padding-bottom: scaleVal(48);
+        }
+        .hero-body {
+          max-width: 330px;
+          margin: 20px 0;
+          @include bpMedium {
+            margin: 0;
+            margin-top: scaleVal(24);
+            max-width: scaleVal(326);
+          }
+        }
+      }
+      &__bottom {
+        @include bpMedium {
+          margin-top: auto;
+        }
+      }
+    }
+    .gradient-text {
+      opacity: 0;
+    }
+  }
+  &__black {
+    /* This black element covers the
+     * hero's content when site starts,
+     * then it is faded out by adding
+     * 'hide' class - Gabe
+     */
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: black;
+    z-index: 4;
+    transition: opacity 1.2s ease-in-out;
+    &.hide {
+      opacity: 0;
+    }
+  }
+}

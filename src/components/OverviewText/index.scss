@@ -1,0 +1,19 @@
+.overview-text {
+  padding: 100px 0;
+  @include bpMedium {
+    padding: scaleVal(144) 0;
+  }
+  .text-cta {
+    margin-top: 40px;
+    margin-bottom: 0;
+    @include bpMedium {
+      margin-top: scaleVal(64);
+    }
+    .primary-button {
+      margin-top: 40px;
+      @include bpMedium {
+        margin-top: scaleVal(48);
+      }
+    }
+  }
+}

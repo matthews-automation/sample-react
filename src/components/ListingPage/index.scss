@@ -1,0 +1,100 @@
+.listing-page {
+  transition: opacity 300ms $authenticMotion;
+  position: relative;
+  margin-top: -28px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  @include bpMedium {
+    margin-top: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .container {
+    overflow: hidden;
+  }
+  &.loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .filter-button {
+    background: $lighter-gray;
+    padding: 12px 12px 12px 32px;
+    border-radius: 1000px;
+    display: flex;
+    border: none;
+    align-items: center;
+    gap: 24px;
+    transition: background 300ms $authenticMotion, color 300ms $authenticMotion;
+    @include bpMedium {
+      padding: scaleVal(12) scaleVal(12) scaleVal(12) scaleVal(32);
+    }
+    p {
+      font-family: $headlineFont;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+      text-transform: uppercase;
+      @include bpMedium {
+        font-size: scaleVal(14);
+      }
+    }
+    @include onHover {
+      background: $black-10;
+    }
+    .icon {
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      background: $black-20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 300ms $authenticMotion;
+      @include bpMedium {
+        width: scaleVal(24);
+        height: scaleVal(24);
+      }
+      svg {
+        width: 10px;
+        transform: rotate(90deg);
+        @include bpMedium {
+          width: scaleVal(10);
+        }
+      }
+    }
+  }
+  .floating-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: sticky;
+    top: 100dvh;
+    z-index: 10;
+    margin: 0 auto;
+    transform: translateY(calc(-100% - 20px));
+    opacity: 0;
+    transition: opacity 300ms $authenticMotion;
+    pointer-events: none;
+    @include bpMedium { display: none; }
+    &.visible {
+      opacity: 1;
+      pointer-events: initial;
+    }
+    &.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.noCards {
+      transform: translateY(-20px);
+    }
+    .filter-button {
+      box-shadow: 0px 4px 10px 0px $black-10, 0px 8px 40px 0px $black-20;
+      .icon {
+        svg {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}

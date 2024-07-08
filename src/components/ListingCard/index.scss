@@ -1,0 +1,91 @@
+.listing-card {
+    .gradient { 
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+  }
+  .lx {
+    height: 100%;
+    width: 100%;
+  }
+  .content { 
+    margin: 50px 0;
+    @include bpMedium {
+        margin: scaleVal(150) 0;
+    }
+    z-index: 3;
+    .subtitle-5 {
+        line-height: 28px;
+        margin: 10px 0;
+        @include bpMedium {
+            line-height: scaleVal(28);
+            margin: scaleVal(10) 0;
+        }
+    }
+    .body {
+        font-size: 14px;
+        @include bpMedium {
+            font-size: scaleVal(14);
+        }
+    }
+    .tag-cta {
+        margin: 32px 0 40px;
+        .tag-box {
+            gap: 4px;
+            .tag-wrap {
+                padding: 6px 8px;
+                border-radius: 100px;
+            }
+        }
+    }
+  }
+}
+  .dark {
+    color: $white;
+    .gradient {
+        background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+    }
+    @include bpMedium {
+
+        .gradient {
+            background: linear-gradient(to right, rgb(0, 0, 0), transparent);
+        }
+    }
+
+    .content {
+        .card-background { 
+            background-color: $white;
+            color: $black;
+            .tag-wrap {
+                background-color: $lighter-gray;
+            }
+            .inline-arrow {
+                color: $copper;
+            }
+        }
+    }
+  }
+  
+  .light {
+    color: $black;
+    .gradient {
+        background: linear-gradient(to bottom, rgb(255, 255, 255), transparent);
+    }
+    @include bpMedium {
+
+        .gradient {
+            background: linear-gradient(to right, rgb(255, 255, 255), transparent);
+        }
+    }
+    .content {
+        .card-background { 
+            background-color: $black;
+            color: $white;
+            .tag-wrap {
+                color: $black;
+                background-color: $white;
+            }
+        }
+    }
+  }
+

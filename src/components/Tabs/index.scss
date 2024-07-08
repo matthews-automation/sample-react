@@ -1,0 +1,65 @@
+.tabs {
+  &__tab-buttons {
+    display: flex;
+    margin: 40px 0;
+    @include bpMedium {
+      margin: 0;
+      gap: scaleVal(20);
+      padding: scaleVal(60) 0;
+    }
+    &__button {
+      background: rgba($black, 0);
+      padding: 12px 9px;
+      border: none;
+      color: $black;
+      text-wrap: balance;
+      transition: all 300ms $authenticMotion;
+      position: relative;
+      border: 1px solid $black;
+      border-left: none;
+      width: auto;
+      flex-grow: 1;
+      @include bpMedium {
+        padding: scaleVal(12) scaleVal(9);
+        width: 100%;
+        border-left: 1px solid $black;
+      }
+      &.button-small {
+        @include mobileOnly {
+          font-size: 12px;
+        }
+      }
+      @include mobileOnly {
+        &:first-of-type {
+          border-radius: 8px 0 0 8px;
+          border-left: 1px solid $black;
+        }
+        &:last-of-type { border-radius: 0 8px 8px 0; }
+      }
+      @include bpMedium {
+        padding: scaleVal(24);
+        border-radius: 12px;
+      }
+      @include onHover {
+        background: $black;
+        color: $white;
+      }
+      svg {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 300ms $authenticMotion;
+        opacity: 0;
+      }
+      &.active {
+        background: $black;
+        color: $white;
+        pointer-events: none;
+        svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

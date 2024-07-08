@@ -1,0 +1,15 @@
+.outer {
+    border: black solid 1px;
+    border-radius: 100px;
+    padding: 3px;
+    margin-right: 10px;
+    width: 48px;
+    height: 24px;
+    .slider {
+        background-color: black;
+        width: 16px;
+        height: 16px;
+        border-radius: 100px;
+        top: 3;
+    }
+}

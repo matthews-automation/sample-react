@@ -1,0 +1,43 @@
+.search-results {
+  text-align: left;
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @include bpMedium {
+    max-width: scaleVal(1000); 
+  }
+  .eyebrow {
+    margin: 0;
+    padding: 16px 0px;
+    @include bpMedium {
+      padding: scaleVal(16) 0;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 32px;
+    .subtitle-3 {
+      margin: 0;
+    }
+    
+    @include bpMedium {
+      margin-top: scaleVal(48);
+      gap: scaleVal(32);
+    }
+    a, p {
+      color: $black;
+      opacity: 0.7;
+      transition: opacity 300ms $authenticMotion;
+      @include Body;
+      @include onHover {
+        opacity: 1;
+      }
+    }
+    a {
+      text-decoration-line: underline;
+    }
+  }
+}

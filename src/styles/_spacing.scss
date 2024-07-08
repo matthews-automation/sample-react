@@ -1,0 +1,149 @@
+.spacing {
+    color: darkgreen;
+}
+
+.comp-padding {
+    padding: 20px 0;
+    @include bpMedium {
+        padding: scaleVal(48) 0;
+    } 
+}
+
+.comp-padding-larger {
+    padding: 40px 0;
+    @include bpMedium {
+        padding: scaleVal(72) 0;
+    } 
+}
+
+.comp-padding-larger-bottom {
+    padding: 40px 0;
+    @include bpMedium {
+        padding: scaleVal(48) 0 scaleVal(72);
+    } 
+}
+
+.heading-lockup, .inner-comp {
+    padding-top: 20px;
+    padding-bottom: 16px;
+    @include bpMedium {
+        padding-top: scaleVal(24);
+        padding-bottom: scaleVal(24);
+    }
+    .sub-header {
+        margin: 24px 0 0 0;
+        @include bpMedium {
+            margin: scaleVal(24) 0 0;
+        }
+        &:empty {
+            display: none;
+        }
+    }
+}
+
+.side-lockup {
+    .sub-header {
+        margin: 24px 0;
+        @include bpMedium {
+            margin: scaleVal(24) 0 0;
+        }
+        &:empty {
+            display: none;
+        }
+    }
+}
+
+.title-lockup {
+    padding-top: 24px;
+    padding-bottom: 32px;
+    @include bpMedium {
+        padding-top: scaleVal(10);
+        padding-bottom: scaleVal(48);
+    }
+
+    .eyebrow {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    h3, h5 {
+        margin-top: 20px;
+        @include bpMedium {
+            margin-top: scaleVal(24);
+        }
+    }
+    
+    .body {
+        margin-top: 24px;
+        @include bpMedium {
+            margin-top: scaleVal(32);
+        }
+    }
+}
+
+.ml-20 {
+    margin-left: 20px;
+    @include bpMedium {
+        margin-left: scaleVal(20);
+    }
+}
+
+.pr-20 {
+    padding-right: 20px;
+    @include bpMedium {
+        padding-right: scaleVal(20);
+    }
+}
+
+.ml-40 {
+    margin-left: 40px;
+    @include bpMedium {
+        margin-left: scaleVal(40);
+    }
+}
+
+.mr-20 {
+    margin-right: 20px;
+    @include bpMedium {
+        margin-right: scaleVal(20);
+    }
+}
+
+.buttons-wrap {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  
+    margin-top: 24px;
+    margin-bottom: 24px;
+    
+    @include bpMedium {
+        gap: scaleVal(24);
+        margin-top: scaleVal(32);                                                                    
+        margin-bottom: scaleVal(32);
+    }
+    &-top {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+        margin-bottom: 0;
+        @include bpMedium {
+            margin-top: scaleVal(32);
+            gap: scaleVal(24);
+        }
+    }
+    &-larger {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    
+        @include bpMedium {
+            margin-top: scaleVal(48);
+            margin-bottom: scaleVal(48);
+            gap: scaleVal(24);
+        }
+    }
+}

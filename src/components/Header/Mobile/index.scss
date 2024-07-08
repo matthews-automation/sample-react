@@ -1,0 +1,205 @@
+.mobile-menu {
+  $offset: scaleVal(80);
+  position: absolute;
+  top: $headerHeight;
+  z-index: 100;
+  background: white;
+  width: 100%;
+  height: calc(100dvh - $headerHeight);
+  overflow-x: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms $authenticMotion;
+  @include bpMedium {
+    top: scaleVal(80);
+    height: calc(100dvh - #{$offset});
+  }
+  @include bpLarge {
+    visibility: hidden;
+    display: none;
+  }
+  &.visible {
+    opacity: 1;
+    pointer-events: initial;
+    overflow-y: scroll;
+  }
+  &__screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 16px 40px;
+    background: white;
+    border-top: 1px solid $black-10;
+    transition: transform 400ms $authenticMotion;
+    @include bpMedium {
+      padding: 0 scaleVal(48) scaleVal(40);
+    }
+    &.active {
+      transform: translateX(-100%);
+    }
+
+    &__items {
+      &__item {
+        border-top: 1px solid $black-10;
+        &:first-of-type {
+          border-top: none;
+        }
+        button {
+          border: none;
+          background: none;
+          padding: 24px 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          .arrow {
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: black;
+            color: white;
+            svg {
+              width: 10px;
+              height: 10px;
+            }
+          }
+          @include onHover {
+            .arrow {
+              background: $copperGradient;
+            }
+          }
+        }
+      }
+    }
+    &__bottom {
+      margin-top: auto;
+      .button-secondary-wrap {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      &__social {
+        margin-top: 40px;
+        .eyebrow {
+          margin: 0 0 12px;
+        }
+        .social-links {
+          a {
+            width: 56px;
+            height: 56px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            padding: 12px;
+            border: 1px solid black;
+            margin-right: 8px;
+            color: $black-70;
+            border-color: $black-70;
+            svg {
+              width: 32px;
+              height: 32px;
+            }
+            @include onHover {
+              color: black;
+              border-color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__sub-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: calc(100dvh - $headerHeight);
+    transform: translateX(100%);
+    transition: transform 400ms $authenticMotion;
+    @include bpMedium {
+      height: calc(100dvh - #{$offset});
+    }
+    &.active {
+      transform: translateX(0);
+      overflow: hidden;
+    }
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 70px;
+      border: {
+        bottom: 1px solid $black-10;
+        top: 1px solid $black-10;
+      }
+      @include bpMedium {
+        padding: 0 scaleVal(48);
+      }
+      .icon-button {
+        margin-right: auto;
+        --icon-color: white;
+        padding: 6px;
+        width: auto;
+        height: auto;
+        svg {
+          width: 10px;
+          height: 10px;
+        }
+        @include onHover {
+          background: $copperGradient;
+        }
+      }
+      .subtitle-3 {
+        margin-right: auto;
+      }
+    }
+    &__items {
+      height: calc(100% - 70px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      &__item {
+        .accordion-item {
+          padding: { left: 20px; right: 20px; }
+          @include bpMedium {
+            padding: { left: scaleVal(48); right: scaleVal(48); }
+          }
+        }
+      }
+      .accordion-links {
+        padding-top: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        a {
+          color: black;
+          padding: 12px 0;
+          @include GradientUnderline(0px, 6px);
+          @include bpMedium {
+            padding: scaleVal(12) 0; 
+          }
+        }
+      }
+      .bottom-button {
+        border: {
+          top: 1px solid $black-10;
+          bottom: 1px solid $black-10;
+        };
+        padding: 20px;
+        margin-top: auto;
+        @include bpMedium {
+          padding: 20px scaleVal(48);
+        }
+        .sub-nav-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

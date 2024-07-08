@@ -1,0 +1,115 @@
+.hero-detail {
+    display: flex;
+    gap: 0;
+    margin: 0;
+    height: auto;
+    color: $white;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    @include bpMedium {
+        padding-left: scaleVal(48);
+        margin-bottom: scaleVal(20);
+        // height: calc(100vh - 96px);
+    }
+    @include bpXLarge {
+        margin-bottom: scaleVal(48);
+    }
+    .detail-hero {
+
+        aspect-ratio: 370/535;
+        @include bpMedium {
+            aspect-ratio: 1392/578;
+        }
+        img {
+            position: absolute;
+        }
+    }
+    &__box{
+        padding: 20px 0px 0px 20px;
+        @include bpMedium {
+            padding: scaleVal(48) 0 0 0;
+        }
+        height: 100%; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between;
+        width: 100%;
+        .image-overlay {
+            position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            @include bpMedium {
+                padding: 0;
+            }
+            .row-bottom {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                @include bpMedium {
+                    flex-direction: row;
+                }
+            }
+        }
+        .png-image {
+            z-index: 10;
+            object-fit: contain;
+            padding: 20px;
+            height: 70vh;
+        }
+        .background-gradient {
+            bottom: 0;
+            height: 100%;
+            background: linear-gradient(to bottom, #F5F5F5, #D6DEE7); 
+        }
+
+        .transparent-background-gradient {
+            bottom: 0;
+            height: calc(100% - 48px);
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        }
+
+        .heading {
+            bottom: 0;
+            left: 0px;
+            align-self: start;
+            z-index: 11;
+            padding: 0 20px 20px 40px;
+            @include bpMedium {
+                padding: 0 scaleVal(48) scaleVal(48) scaleVal(48);
+            }
+            
+            &__content {
+                &__header {
+                    text-transform: uppercase;
+                    margin-top: 16px;
+                    @include bpMedium {
+                        margin-top: scaleVal(24);
+                    }
+                }
+                .body {
+                    margin: 20px 0;
+                    @include bpMedium {
+                        margin: scaleVal(24) 0 0;
+                        max-width: scaleVal(515);
+                    }
+                }
+            }
+            .inline-button-wrap {
+                @include bpMedium {
+                    margin-bottom: scaleVal(24, null, -1);
+                }
+            }
+        }
+    }
+}

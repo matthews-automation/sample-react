@@ -1,0 +1,49 @@
+.insights {
+  background: linear-gradient(180deg, #EDEDED 0%, $white 100%);
+  padding: 40px 0;
+  z-index: 2;
+  overflow: hidden;
+  @include bpMedium {
+    padding: scaleVal(72) 0;
+  }
+  .inline-btn {
+    // margin-top: 20px;©
+    svg {
+      color: $copper;
+    }
+  }
+  .text {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 24px;
+    @include bpMedium {
+      padding-bottom: 0;
+      gap: scaleVal(20);
+    }
+    .display-5 {
+      &.en {
+        max-width: 250px;
+      }
+    }
+  }
+  .row {
+    gap: 16px;
+    margin: 0;
+    @include bpMedium {
+      flex-wrap: nowrap;
+    }
+  }
+  .slider-container {
+    .insights-copy {
+      display: block;
+    }
+    .splide-custom {
+      .insight-card {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+}

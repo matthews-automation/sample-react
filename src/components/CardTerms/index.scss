@@ -1,0 +1,24 @@
+.card-terms {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 4px;
+  @include bpMedium {
+    margin-top: scaleVal(20);
+    gap: scaleVal(4);
+  }
+  &__term {
+    padding: 6px 8px;
+    border-radius: 100px;
+    background: $white;
+    color: $black;
+    border: 1px solid $black-10;
+    transition: color 300ms $authenticMotion;
+    @include bpMedium {
+      padding: scaleVal(6) scaleVal(8);
+    }
+    @include onHover {
+      color: $copper;
+    }
+  }
+}

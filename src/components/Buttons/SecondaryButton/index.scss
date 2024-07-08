@@ -1,0 +1,47 @@
+.button-secondary-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 1000px;
+    border: none;
+    cursor: pointer;
+    padding: 19px 24px;
+    @include bpMedium {
+        padding: scaleVal(23) scaleVal(32);
+    }
+    align-items: center;
+    .button-text {
+        position: relative;
+        text-wrap: wrap;
+        z-index: 1000;
+        color: white;
+        font-size: 14px;
+        transition: color 0.4s ease;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @include bpMedium {
+            font-size: scaleVal(14);
+        }
+    }
+
+    @include onHover {
+        .button-text {
+            color: black;
+        }
+        .gradient {
+            transform: translate(-50%, -50%) scale(2) ease-in; 
+        }
+    }
+
+    .gradient {
+        position: absolute;
+        border-radius: 50%;
+        background: $copperGradient;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.4s ease-in-out;
+        pointer-events: none;
+        left: var(--gradient-x);
+        top: var(--gradient-y);
+    }
+}

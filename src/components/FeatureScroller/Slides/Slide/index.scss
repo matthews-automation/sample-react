@@ -1,0 +1,86 @@
+.feature-scroller-slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: white;
+  overflow: hidden;
+  .slide-label {
+    margin: 0;
+    margin-bottom: 24px;
+    @include bpLarge {
+      margin-bottom: 0;
+    }
+  }
+  .container {
+    transition: opacity 300ms $authenticMotion;
+    .copy-row {
+      align-items: center;
+    }
+  }
+  &.outro {
+    .container {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  &__content {
+    height: 100%;
+    width: 100%;
+  }
+  @include mobileOnly {
+    .ap-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 500ms $authenticMotion, transform 500ms $authenticMotion;
+    }
+    &.appear {
+      .ap-child {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  @include bpMedium {
+    &:not(.first) {
+      .ap-child {
+        opacity: 0;
+        transition: opacity 500ms $authenticMotion;
+      }
+      &.appear {
+        .ap-child {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__bg {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.1);
+    object-fit: cover;
+    @include bpMedium {
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+  }
+  &__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 20px 0;
+    @include bpMedium {
+      padding: scaleVal(48) 0;
+    }
+    a, button {
+      pointer-events: auto;
+    }
+  }
+}

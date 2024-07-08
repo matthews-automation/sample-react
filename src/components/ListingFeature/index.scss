@@ -1,0 +1,113 @@
+.listing-feature {
+  margin: 20px 0;
+  @include bpMedium {
+    margin: scaleVal(48) 0;
+  }
+  .gradient {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+  }
+  .lx {
+    height: 100%;
+    width: 100%;
+  }
+  .side-lockup {
+    .sub-header {
+      margin-bottom: 40px;
+      @include bpMedium {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .content {
+    padding: 50px 20px;
+    @include bpMedium {
+      padding: scaleVal(144) scaleVal(48);
+    }
+    z-index: 3;
+    .listing-card-image {
+      min-height: 100%;
+      height: auto;
+      @include bpMedium {
+        width: scaleVal(318);
+        flex-shrink: 0;
+      }
+    }
+    .card-background {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      @include bpMedium {
+        padding: scaleVal(48) scaleVal(88) scaleVal(40);
+      }
+      .subtitle-5 {
+        margin-top: 24px;
+        @include bpMedium {
+          margin-top: scaleVal(32);
+        }
+      }
+      .body-small {
+        margin-top: 12px;
+        @include bpMedium {
+          margin-top: scaleVal(12);
+        }
+      }
+      .buttons-wrap-top {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 16px;
+      }
+      .tag-box {
+        display: flex;
+        gap: 4px;
+        @include bpMedium {
+          gap: scaleVal(4);
+        }
+        .tag {
+          display: flex;
+          align-items: center;
+          padding: 6px 8px;
+          border-radius: 100px;
+          border: 1px solid $black-20;
+          @include bpMedium {
+            padding: scaleVal(6) scaleVal(8);
+          }
+        }
+      }
+    }
+  }
+  &.dark {
+    color: $white;
+    .content {
+      .card-background {
+        background-color: $white;
+        color: $black;
+        .tag {
+          background-color: $white;
+        }
+        .inline-arrow {
+          color: $copper;
+        }
+      }
+    }
+  }
+
+  &.light {
+    color: $black;
+    .content {
+      .card-background {
+        background-color: $black;
+        color: $white;
+        .tag {
+          color: $black;
+          background-color: $lighter-gray;
+        }
+      }
+    }
+  }
+}

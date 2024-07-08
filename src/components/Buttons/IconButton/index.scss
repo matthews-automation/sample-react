@@ -1,0 +1,24 @@
+.icon-button {
+  background: black;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  color: var(--icon-color, #000);
+  transition: color 300ms $authenticMotion;
+  @include bpMedium {
+    width: scaleVal(24);
+    height: scaleVal(24);
+  }
+  &.flip {
+    transform: rotate(180deg);
+  }
+  svg, image {
+    pointer-events: none;
+  }
+}

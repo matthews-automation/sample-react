@@ -1,0 +1,114 @@
+.language-select {
+  position: fixed;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 1001;
+  background: $black-80;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  &__content {
+    width: 100%;
+    background: $white;
+    padding: 16px 16px 32px;
+    border-radius: 8px;
+    @include bpMedium {
+      $size: calc(354 * var(--chunk-count));
+      max-width: scaleVal($size);
+      padding: scaleVal(24) scaleVal(24) scaleVal(40);
+    }
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+      position: relative;
+      min-height: 24px;
+      @include bpMedium {
+        justify-content: flex-start;
+        gap: scaleVal(12);
+        margin-bottom: scaleVal(24);
+      }
+      .eyebrow {
+        flex-shrink: 0;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        @include bpMedium {
+          margin-top: scaleVal(1, null, -1);
+          width: auto;
+        }
+      }
+      hr {
+        display: none;
+        width: 100%;
+        border: 1px solid $black-10;
+        @include bpMedium {
+          display: block;
+        }
+      }
+      &__close {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+        border: none;
+        background: transparent;
+        display: flex;
+        cursor: pointer;
+        color: $black;
+        transition: color 300ms $authenticMotion;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        @include onHover {
+          color: $copper;
+        }
+        @include bpMedium {
+          position: static;
+          transform: none;
+          width: scaleVal(24);
+          height: scaleVal(24);
+          padding: scaleVal(6);
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .country-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      @include bpMedium {
+        flex-wrap: nowrap;
+        gap: scaleVal(26);
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+        @include bpMedium {
+          gap: scaleVal(12);
+        }
+        .country-button {
+          display: inline-flex;
+          padding: 0;
+          border: none;
+          background: transparent;
+          text-align: left;
+          @include GradientUnderline(0px, 0);
+        }
+      }
+    }
+  }
+}

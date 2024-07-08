@@ -1,0 +1,7 @@
+<svg viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle opacity="0.25" cx="37" cy="37" r="36" stroke="white" />
+  <circle class="progress-circle" opacity="1" cx="37" cy="37" r="36" stroke="white" stroke-dashoffset="0" stroke-dasharray="0" transform="rotate(-90 37 37)" />
+  <path
+    d="M36.3998 39.5042L36.3998 32.1992L37.5998 32.1992L37.5998 39.5042L40.9598 36.1442L41.7998 36.9992L36.9998 41.7992L32.1998 36.9992L33.0398 36.1442L36.3998 39.5042Z"
+    fill="white" />
+</svg>

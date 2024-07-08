@@ -1,0 +1,52 @@
+.specs {
+  padding: 40px 0;
+  .heading {
+    margin-bottom: 20px;
+    @include bpMedium {
+      margin-bottom: scaleVal(30);
+    }
+    .buttons-wrap {
+      margin-top: 30px;
+      @include bpMedium {
+        margin-top: scaleVal(60);
+      }
+    }
+  }
+  .list {
+    margin-top: 10px;
+    @include bpMedium {
+      margin-top: scaleVal(20);
+    }
+    .title-list {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1058823529);
+      @include bpMedium {
+        padding: scaleVal(34) 0;
+      }
+      .subtitle-4 {
+        font-weight: 600;
+        font-size: 18px;
+        @include bpMedium {
+            font-size: scaleVal(20);
+        }
+      }
+    }
+    .eyebrow {
+      margin: 0;
+    }
+  }
+
+  @include bpMedium {
+    padding: scaleVal(72) 0;
+    .sticky {
+      position: sticky; 
+      top: 0;
+      width: 100%;
+      transition: top 0.3s ease-in-out;
+      padding: 10px 0 20px;
+      @include bpMedium {
+        padding: scaleVal(10) 0 scaleVal(20);
+      }
+    }
+  }
+}

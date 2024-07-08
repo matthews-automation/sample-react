@@ -1,0 +1,80 @@
+@import "./normalize";
+@import "./grid";
+@import "./stickersheet";
+@import "./transitions";
+@import "./spacing";
+@import "./position";
+
+body {
+  * {
+    box-sizing: border-box;
+  }
+  background: $black;
+  &.locked {
+    overflow: hidden;
+  }
+  img, video {
+  height: auto;
+    width: 100%;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    z-index: 2;
+    padding-top: $headerHeight;
+    position: relative;
+    background: white;
+    &__content {
+      position: relative;
+      z-index: 2;
+    }
+    @include bpMedium {
+      padding-top: scaleVal(80);
+    }
+    &--search {
+      min-height: 0;
+    }
+    &--home {
+      z-index: 2;
+      margin-top: -80px;
+      @include bpMedium {
+        margin-top: scaleVal(80, null, -1);
+      }
+    }
+    &--listing {
+      z-index: 3;
+    }
+    &--landing {
+      margin-top: -80px;
+      @include bpMedium {
+        margin-top: scaleVal(80, null, -1);
+      }
+      .page__content {
+        background: $white;
+      }
+    }
+    &--404 {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .row {
+        justify-content: center;
+      }
+    }
+    .no-components {
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: $safeHeight;
+      .display-4 {
+        @include mobileOnly {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}

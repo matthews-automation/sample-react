@@ -1,0 +1,62 @@
+.media {
+  .button-col {
+    display: flex;
+    margin-top: 24px;
+    @include bpMedium {
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+  }
+  .heading-lockup {
+    align-items: flex-end;
+    @include mobileOnly {
+      padding-bottom: 12px;
+    }
+  }
+  .card {
+    &:not(.card--1) {
+      .inline-video {
+        &__controls {
+          @include bpMedium {
+            padding: scaleVal(8) scaleVal(16) scaleVal(16);
+          }
+          .progress {
+            @include bpMedium {
+              padding: scaleVal(2) 0;
+              margin: scaleVal(4) 0;
+            }
+          }
+          .time {
+            @include bpMedium {
+              font-size: scaleVal(12);
+            }
+          }
+          .icon-button {
+            @include bpMedium {
+              width: scaleVal(20);
+              height: scaleVal(20);
+            }
+          }
+        }
+      }
+    }
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    @include bpMedium {
+      flex-wrap: nowrap;
+    }
+    .card {
+      @include bpMedium {
+        flex: 1 0 0;
+      }
+      .sub-header {
+        margin-top: 20px;
+        @include bpMedium {
+          margin-top: scaleVal(20);
+        }
+      }
+    }
+  }
+}

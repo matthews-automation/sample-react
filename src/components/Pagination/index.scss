@@ -1,0 +1,92 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 72px;
+  @include bpMedium {
+    gap: scaleVal(8);
+    margin-bottom: scaleVal(72);
+  }
+  button {
+    border: none;
+    cursor: pointer;
+    &:disabled {
+      pointer-events: none;
+    }
+  }
+  .tag {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include bpMedium {
+      width: scaleVal(40);
+      height: scaleVal(40);
+    }
+  }
+  &__button {
+    width: 40px;
+    height: 40px;
+    @include bpMedium {
+      width: scaleVal(40);
+      height: scaleVal(40);
+    }
+    background: $black-20;
+    color: $white;
+    cursor: pointer;
+    transition: background 300ms $authenticMotion, color 300ms $authenticMotion;
+    @include onHover {
+      background: $black;
+    }
+    &:disabled {
+      background: $black;
+      pointer-events: none;
+    }
+  }
+  &__arrow {
+    width: 20px;
+    background: none;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $black;
+    @include bpMedium {
+      width: scaleVal(20);
+      height: scaleVal(20);
+    }
+    @include onHover {
+      color: $copper;
+    }
+    &:disabled {
+      svg {
+        color: $black-40;
+      }
+    }
+    &.prev {
+      margin-right: 20px;
+      @include bpMedium {
+        margin-right: scaleVal(20);
+      }
+      svg { transform: rotate(-90deg); }
+    }
+    &.next {
+      margin-left: 20px;
+      @include bpMedium {
+        margin-left: scaleVal(20);
+      }
+      svg { transform: rotate(90deg); }
+    }
+    svg {
+      width: 10px;
+      height: 10px;
+      @include bpMedium {
+        width: scaleVal(10);
+        height: scaleVal(10);
+      }
+    }
+  }
+}

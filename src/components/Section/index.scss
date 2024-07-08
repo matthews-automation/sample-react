@@ -1,0 +1,212 @@
+.blog-section {
+  margin-bottom: 80px;
+  p.body {
+    margin-bottom: 40px;
+    color: $black-70;
+  }
+  .subtitle-3, .subtitle-1, .subtitle-2 {
+    margin: 0 0 30px 0;
+  }
+  .section-title {
+    margin: 0 20px 20px 0;
+    overflow-wrap: break-word; 
+  }
+  .blog-link {
+    color: $copper;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  @include bpMedium {
+    margin-bottom: scaleVal(100);
+    p.body {
+      margin-bottom: scaleVal(40);
+    }
+    .subtitle-3, .subtitle-1, .subtitle-2 {
+      margin: 0 0 scaleVal(30) 0;
+    }
+    .section-title {
+      margin: 0 scaleVal(20) scaleVal(20) 0;
+    }
+  }
+  &--component {
+    margin: 0;
+    padding: 40px 0;
+    @include bpMedium {
+      padding: scaleVal(72) 0;
+    }
+  }
+  .matthews-button{
+    background-color: black;
+    border-radius: 1000px;
+    border: none;
+    cursor: pointer;
+    padding: 19px 24px;
+    margin: 20px 0;
+    display: block;
+    width: fit-content;
+    overflow: hidden;
+    color: white;
+    height: auto;
+    line-height: 1;
+    text-transform: none;
+    font-family: $headlineFont;
+    text-transform: uppercase;
+    line-height: 0.8;
+    font-weight: 600;
+    position: relative;
+    font-size: 14px;
+    @include bpMedium {
+      padding: scaleVal(23) scaleVal(32);
+      height: scaleVal(56);
+      margin: scaleVal(20) 0;
+      font-size: scaleVal(14);
+    }
+    .button-text {
+      position: relative;
+      z-index: 2;
+    }
+    .gradient {
+      display: block;
+      z-index: 1;
+      position: absolute;
+      border-radius: 50%;
+      background: $copperGradient;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.4s ease-in-out;
+      pointer-events: none;
+      left: var(--gradient-x);
+      top: var(--gradient-y);
+    }
+  }
+  .blog-image {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin: 20px 0;
+    @include bpMedium {
+      margin: scaleVal(20) 0;
+    }
+  }
+  .custom-ordered-list, .custom-unordered-list {
+    li {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.4;
+      @include bpMedium {
+        font-size: scaleVal(16);
+      }
+    }
+  }
+
+  .custom-unordered-list {
+    list-style-type: disc;
+    color: black;
+    padding: 20px 0;
+    padding-left: 20px;
+    @include bpMedium {
+      padding: scaleVal(20) 0;
+      padding-left: scaleVal(20);
+    }
+  }
+
+  .custom-ordered-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+    @include bpMedium {
+      padding-left: scaleVal(20);
+    }
+  }
+
+  .custom-blockquote {
+    p {
+      font-family: $bodyFont;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.2;
+      @include bpMedium {
+        margin: scaleVal(30) 0;
+        font-size: scaleVal(32);
+      }
+    }
+  }
+  .expandable-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    @include bpMedium {
+      height: scaleVal(400);
+      &.no-expand {
+        height: auto;
+      }
+    }
+
+    &.expanded {
+      .gradient-overlay {
+        opacity: 0;
+      }
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      bottom: 90px;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(to bottom, transparent, white);
+      pointer-events: none;
+      transition: opacity 300ms $authenticMotion;
+      @include bpMedium {
+        display: block;
+        bottom: scaleVal(90);
+        height: scaleVal(150); 
+      }
+    }
+  }
+  .toggle-button {
+    font-family: $headlineFont;
+    color: $black;
+    border: none;
+    padding: 10px 0;
+    margin: 10px 0 40px;
+    cursor: pointer;
+    background: transparent;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include bpMedium {
+      display: flex;
+      padding: scaleVal(10) 0;
+      margin: scaleVal(10) 0 scaleVal(40);   
+    }
+    .arrow-button {
+      margin-left: 8px;
+      display: flex;
+      width: 24px;
+      height: 24px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      background: var(--Light-Gray, #F5F5F5);
+      transition: background-color 0.4s ease;
+      svg {
+        width: 10px;
+        height: 10px;
+        transform: rotate(180deg);
+      }
+      @include bpMedium {
+        width: scaleVal(24);
+        height: scaleVal(24);
+        margin-left: scaleVal(8);
+        svg {
+          width: scaleVal(10);
+          height: scaleVal(10);
+        }
+      }
+      &.clicked {
+        background: black;
+        svg {
+          color: white;
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}

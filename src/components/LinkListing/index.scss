@@ -1,0 +1,17 @@
+.link-listing {
+    .heading-lockup{
+        .sub-header {
+        margin-bottom: 24px;
+        @include bpMedium {
+            margin-bottom: 0;
+        }
+    }
+  }
+    .link-listing-link:first-of-type {
+        margin-top: 0;
+        border-top: 1px solid #0000001b;
+        @include bpMedium {
+            margin-top: scaleVal(24);
+        }
+    }
+  }

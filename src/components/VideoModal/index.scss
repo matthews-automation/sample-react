@@ -1,0 +1,242 @@
+.video-modal {
+  z-index: 3;
+  pointer-events: initial;
+  width: 230px;
+  position: relative;
+  aspect-ratio: 16/9;
+  @include bpMedium {
+    width: scaleVal(230);
+  }
+  &__preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    will-change: transform;
+    img, video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &__video-clip {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+    &__video {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+        transition: opacity 300ms $authenticMotion;
+        pointer-events: none;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 101%;
+          height: 101%;
+          background: rgba($black, 0.6);
+          z-index: 2;
+        }
+        img {
+          z-index: 1;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 101%;
+          height: 101%;
+          transform: translate(-50%, -50%);
+          object-fit: cover;
+        }
+        &.hidden {
+          opacity: 0;
+        }
+      }
+      .caption {
+        font-family: $bodyFont;
+        font-weight: 500;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -48px);
+        color: $white;
+        font-size: scaleVal(24);
+        text-align: center;
+        width: auto;
+        background: rgba($black, 0.6);
+        padding: scaleVal(12) scaleVal(20);
+        border-radius: scaleVal(8);
+        transition: transform 300ms $authenticMotion;
+        &.ui-active {
+          transform: translate(-50%, -148px);
+        }
+      }
+    }
+    &__ui {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+      transition: opacity 300ms $authenticMotion;
+      &.hidden {
+        // opacity: 0;
+      }
+      .close {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        width: scaleVal(48);
+        height: scaleVal(48);
+        background: rgba($white, 0);
+        transition: background 300ms $authenticMotion,
+          color 300ms $authenticMotion;
+        border: 1px solid $white;
+        color: $white;
+        svg {
+          width: scaleVal(20);
+        }
+        @include onHover {
+          background: $white;
+          color: $black;
+        }
+      }
+      &__controls {
+        pointer-events: none;
+        padding: 0px scaleVal(40) scaleVal(16) scaleVal(40);
+        margin-bottom: -1px;
+        margin-top: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(
+          180deg,
+          rgba(8, 9, 13, 0) 0%,
+          rgba(8, 9, 13, 0.9) 80.37%
+        );
+        .time {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          p {
+            margin: 0;
+            margin-top: 8px;
+          }
+          .body {
+            color: $gray;
+          }
+        }
+        .progress {
+          margin: scaleVal(8) 0;
+          padding: scaleVal(4) 0;
+          display: flex;
+          width: 100%;
+          &__bar {
+            position: relative;
+            width: 100%;
+            height: 1px;
+            background: $light-gray-40;
+            &__inner {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              background: $white;
+              width: 0;
+            }
+          }
+        }
+        .buttons {
+          pointer-events: initial;
+          display: flex;
+          &.hidden {
+            pointer-events: none;
+          }
+          .icon-button {
+            pointer-events: initial;
+            width: 48px;
+            height: 48px;
+            background: none;
+            color: white;
+            @include bpMedium {
+              width: scaleVal(48);
+              height: scaleVal(48);
+            }
+            @include onHover {
+              color: $copper;
+            }
+            svg {
+              width: 100%;
+            }
+            &.sound-button {
+              margin-left: auto;
+            }
+          }
+        }
+      }
+    }
+    &__play {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      cursor: pointer;
+      flex-direction: column;
+      border: none;
+      padding: 0;
+      @include onHover {
+        .play-icon {
+          background: $white;
+          color: $black;
+        }
+      }
+      .play-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-top: auto;
+        transition: color 300ms $authenticMotion, background 300ms $authenticMotion;
+        svg { width: 80%; }
+        @include bpMedium {
+          width: scaleVal(40);
+          height: scaleVal(40);
+        }
+      }
+      .video-label {
+        margin: {
+          top: auto;
+          bottom: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,58 +1,42 @@
-## Get Started
+# Matthews Website
+Development Environent for Matthews wordpress theme and NextJS front end.
 
-This guide describes how to use DigitalOcean App Platform to run a sample React application.
+### Dependencies
 
-**Note**: Following these steps may result in charges for the use of DigitalOcean services.
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+* [NodeJS >= 20](https://nodejs.org/en)
 
-### Requirements
+### Installing
+* From the web directory run `npm i` to install FE packages.
+* From the web directory run `npm run start:wp` to run the local wordpress instance, seed data from the [wp_matthews.sql](../wp/db/wp_matthews.sql) file should start your database fully setup with a default admin login of admin \ password (this database should not be deployed and only used locally).
 
-* You need a DigitalOcean account. If you do not already have one, first [sign up](https://cloud.digitalocean.com/registrations/new).
+### Executing program
+Ensure the local wordpress instance is running:   
+*  run `npm run dev` to start the FE on port 3000
 
-## Deploy the App
+### Development
+Pages can be defined in the pages directory for sandbox development. All real site pages must be defined in wordpress (local or hosted) in order to be resolved and not throw a 404.   
+Components / Options / Post Types / Etc. are defined in ACF and when they are saved in WP they are saved to the theme in the `acf-json` folder. This ensures everyone has the same definitions for fields. These do have to be syncronized in the WP admin panel go to ACF / [FIELD_TYPE] and see `sync-available` to synchronize fields to the latest acf-json. 
 
-Click the following button to deploy the app to App Platform. If you are not currently logged in with your DigitalOcean account, this button prompts you to to log in.
+### Deploying
+The frontend and wordpress are deployed separately.  
+* **FE deploy:** `npm run deploy` this will build and copy files to the VM that runs the FE.    
+* **Wordpress deploy:** `npm run deploy:wp` this will copy only the custom Matthews theme files from your local to the VM that runs wordpress.   
+* **Plugins deploy:** Plugins are tracked in git in order to ensure everyone has the same plugins for local development but not deployed by default with the custom theme files.   
+`npm run deploy:plugins` copy all plugin files from the wordpress plugins folder to the VM that runs wordpress.   
+New plugins will need to be activated and setup on the VM.    
 
-[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/digitalocean/sample-react/tree/main)
+## Help
+The appropriate plugin keys should come with the seed data from the sql file but if any plugins are inactive or missing keys find and enter them in your local wp instance.
 
-Note that, for the purposes of this tutorial, this button deploys the app directly from DigitalOcean's GitHub repository, which disables automatic redeployment since you cannot change our template. If you want automatic redeployment or you want to change the sample app's code to your own, we instead recommend you fork [our repository](https://github.com/digitalocean/sample-react/tree/main).
+## Spline usage
+We are currently using Spline exports for the header sections. There are a couple of notable tradeoffs with this.
+- Using Spline makes it easy to handle feedback and updates and reduces code.
+- It also makes it a little difficult to get exact control things like scroll and mouse movement, because those things are handled in Spline.
+- This also means scroll responsiveness (viewport height, specifically) is difficult to nail down.
 
-To fork our repository, click the **Fork** button in the top-right of [its page on GitHub](https://github.com/digitalocean/sample-react/tree/main), then follow the on-screen instructions. To learn more about forking repos, see the [GitHub documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
-
-After forking the repo, you can view the same README in your own GitHub org; for example, in `https://github.com/<your-org>/sample-react`. To deploy the new repo, visit the [control panel](https://cloud.digitalocean.com/apps) and click the **Create App** button. This takes you to the app creation page. Under **Service Provider**, select **GitHub**. Then, under **Repository**, select your newly-forked repo. Ensure that your branch is set to **main** and **Autodeploy** is checked on. Finally, click **Next**.
-
-After clicking the **Deploy to DigitalOcean** button or completing the instructions above to fork the repo, follow these steps:
-
-1. Configure the app, such as by specifying HTTP routes, declaring environment variables, or adding a database. For the purposes of this tutorial, this step is optional.
-1. Provide a name for your app and select the region to deploy your app to, then click **Next**. By default, App Platform selects the region closest to you. Unless your app needs to interface with external services, your chosen region does not affect the app's performance, since to all App Platform apps are routed through a global CDN.
-1. On the following screen, leave all the fields as they are and click **Next**.
-1. Confirm your plan settings and how many containers you want to launch and click **Launch Basic/Pro App**.
-
-After, you should see a "Building..." progress indicator. You can click **View Logs** to see more details of the build. It can take a few minutes for the build to finish, but you can follow the progress in the **Deployments** tab.
-
-Once the build completes successfully, click the **Live App** link in the header and you should see your running application in a new tab, displaying the home page.
-
-
-## Make Changes to Your App
-
-If you forked our repo, you can now make changes to your copy of the sample app. Pushing a new change to the forked repo automatically redeploys the app to App Platform with zero downtime.
-
-Here's an example code change you can make for this app:
-
-1. Edit `src/App.js` and replace "Welcome to Your New React App" with a different greeting
-1. Commit the change to the `main` branch. Normally it's a better practice to create a new branch for your change and then merge that branch to `main` after review, but for this demo you can commit to the `main` branch directly.
-1. Visit the [control panel](https://cloud.digitalocean.com/apps) and navigate to your sample app.
-1. You should see a "Building..." progress indicator, just like when you first created the app.
-1. Once the build completes successfully, click the **Live App** link in the header and you should see your updated application running. You may need to force refresh the page in your browser (e.g. using **Shift** + **Reload**).
-
-## Learn More
-
-To learn more about App Platform and how to manage and update your application, see [our App Platform documentation](https://www.digitalocean.com/docs/app-platform/).
-
-## Delete the App
-
-When you no longer need this sample application running live, you can delete it by following these steps:
-1. Visit the [Apps control panel](https://cloud.digitalocean.com/apps).
-2. Navigate to the sample app.
-3. In the **Settings** tab, click **Destroy**.
-
-**Note**: If you do not delete your app, charges for using DigitalOcean services will continue to accrue.
+Some potential solves that I [neil] haven't been able to fully explore yet:
+- Try to re-implement the rotation/position/scale behavior in GSAP. Applying the same values from Spline didn't have the same effect for me. But I ran out of time.
+- Try to create some variable proxy in Spline that can replace the `Scroll` handler. E.g., if you can get a Spline variable to control the animation from 0-100%, you might be able to set that variable in javascript. (See "Updating scene variables" in [this link](https://www.npmjs.com/package/@splinetool/runtime))
+- If Wes has availability, he might be able to recreate the animation in Blender with rigged models. In which case, using the threejs animation system should be easier. This would also remove the dependency on Spline.
+- Another thing that might be doable is combine the scroll handler with a `Variable Change` event in Spline. So initial scroll will do _some_ motion (via `Scroll` handler), and once you hit a certain scroll trigger, a `Variable Change` handler could finish the transition. And then use the same scroll trigger/variable change handler to reset to the Base state when scrolling back up.

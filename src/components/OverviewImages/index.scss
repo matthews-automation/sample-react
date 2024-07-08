@@ -1,0 +1,94 @@
+.overview-images {
+  $mainImageHeight: 228;
+  padding: 20px 0;
+  @include bpMedium {
+    padding: scaleVal(72) 0;
+  }
+  .text-block {
+    $textBlockMarginBottom: 144;
+    margin: #{$textBlockMarginBottom}px 0;
+    min-height: 250px;
+    @include bpMedium {
+      min-height: scaleVal(400);
+      margin: scaleVal(100) 0;
+    }
+    .no-cta {
+      padding-bottom: calc(($mainImageHeight - $textBlockMarginBottom + 10) * 1px);
+      @include bpMedium {
+        padding-bottom: 0;
+      }
+    }
+    h3 {
+      margin-bottom: 40px;
+      @include bpMedium {
+        margin-bottom: scaleVal(40);
+      }
+    }
+  }
+  .one {
+    position: absolute;
+    top: 160px;
+    display: none;
+    z-index: -100;
+    width: 100%;
+    height: 152px;
+    @include bpMedium {
+      display: block;
+      height: scaleVal(152);
+    }
+  }
+  .two {
+    position: absolute;
+    width: 44%;
+    top: 0px;
+    right: 0px;
+    z-index: -100;
+    height: calc($mainImageHeight * 1px);
+    @include bpMedium {
+      width: 25%;
+      height: scaleVal($mainImageHeight);
+    }
+  }
+  .three {
+    width: 100%;
+    position: absolute;
+    bottom: 180px;
+    right: 0px;
+    display: none;
+    z-index: -100;
+    height: 152px;
+    @include bpMedium {
+      display: block;
+      height: scaleVal(152);
+    }
+  }
+  .four {
+    position: absolute;
+    width: 44%;
+    bottom: 0px;
+    left: 0px;
+    z-index: -100;
+    height: calc($mainImageHeight * 1px);
+    @include bpMedium {
+      width: 25%;
+      height: scaleVal($mainImageHeight);
+    }
+  }
+  .primary-button {
+    margin-top: 40px;
+    @include bpMedium {
+      margin-top: scaleVal(48);
+    }
+  }
+
+  .logo-union {
+    position: absolute;
+    right: -35px;
+    top: 20px;
+    @include bpMedium {
+      right: -20px;
+      top: 20px;
+      height: auto;
+    }
+  }
+}

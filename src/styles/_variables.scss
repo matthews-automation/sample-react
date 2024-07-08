@@ -1,0 +1,57 @@
+.variables {
+  color:pink;
+}
+
+$headerHeight: 80px;
+$safeHeight: calc(100dvh - $headerHeight);
+
+$breakpointMobile: 320px;
+$breakpointTablet: 768px;
+$breakpointDesktop: 1024px;
+$columns: (12, 12, 12, 12);
+$maxWidth: 1440px;
+
+$breakpoint-names: (sm, md, lg, xl);
+
+$breakpointSValue: 320px;
+$breakpointMValue: 768px;
+$breakpointLValue: 1025px;
+$breakpointXLValue: 1440px;
+
+$breakpointS: sm;
+$breakpointM: md;
+$breakpointL: lg;
+$breakpointXL: xl;
+
+$breakpoints: (
+  $breakpointS "(max-width: #{$breakpointSValue})",
+  $breakpointM "(min-width: #{$breakpointMValue})",
+  $breakpointL "(min-width: #{$breakpointLValue})",
+  $breakpointXL "(min-width: #{$breakpointXLValue})",
+);
+
+$headlineFont: var(--headline-font);
+$bodyFont: var(--body-font);
+
+$copper: #B86647;
+$darkCopper: #8F3F1E;
+$error: #B84747;
+$success: #86B847;
+$white: #fff;
+$gray: #B5B5B5;
+$light-gray: #D9D9D9;
+$lighter-gray: #F5F5F5;
+$light-gray-40: rgba($light-gray, 0.4);
+$white-20: rgba($white, 0.2);
+$white-60: rgba($white, 0.6);
+$white-80: rgba($white, 0.8);
+$black: #000;
+$black-10: rgba($black, 0.10);
+$black-20: rgba($black, 0.20);
+$black-40: rgba($black, 0.40);
+$black-70: rgba($black, 0.70);
+$black-80: rgba($black, 0.80);
+$copperGradient: linear-gradient(90deg, #F0885D 0%, #8F3F1E 100%);
+$offwhiteGradient: linear-gradient(to bottom, $lighter-gray , white);
+$offwhiteGradientReverse: linear-gradient(to top, $lighter-gray , white);
+$silverGradient: linear-gradient(90deg, rgba(245, 245, 245, 1), rgba(214, 222, 231, 1));

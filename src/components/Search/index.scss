@@ -1,0 +1,145 @@
+.search {
+  padding: 20px 0 48px;
+  @include bpMedium {
+    padding: scaleVal(72) scaleVal(0);
+  }
+  &__header {
+    .display-5 {
+      margin-bottom: 12px;
+      @include bpMedium {
+        margin-bottom: scaleVal(12);
+      }
+      text-transform: uppercase;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__search {
+    width: 100%;
+    &.loading {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .pagination {
+      margin-bottom: 0;
+    }
+  }
+  &__keywords {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin-bottom: 72px;
+    @include bpMedium {
+      margin-bottom: scaleVal(72);
+    }
+    .body {
+      margin-bottom: 12px;
+      @include bpMedium {
+        margin-bottom: scaleVal(12);
+      }
+    }
+    &__buttons {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
+      gap: 4px;
+      align-self: stretch;
+      flex-wrap: wrap;
+      max-width: 300px;
+      @include bpMedium {
+        max-width: scaleVal(350);
+        gap: scaleVal(4);
+      }
+      button {
+        padding: 8px 12px;
+        border-radius: 80px;
+        border: none;
+        background: $lighter-gray;
+        transition: background 300ms $authenticMotion;
+        @include bpMedium {
+          padding: scaleVal(8) scaleVal(12);
+        }
+        @include onHover {
+          background: $black-10;
+        }
+      }
+    }
+  }
+  form {
+    display: flex;
+    justify-content: center;
+  }
+  &__input {
+    margin: 0 auto;
+    max-width: 432px;
+    width: 100%;
+    display: flex;
+    border: 1px solid $black;
+    border-radius: 12px;
+    position: relative;
+    margin: 48px 0 100px;
+    @include bpMedium {
+      margin: scaleVal(48) scaleVal(0) scaleVal(72);
+      max-width: scaleVal(432);
+    }
+    &__button {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      padding: 8px;
+      display: flex;
+      border: none;
+      background: none;
+      transition: color 300ms $authenticMotion;
+      &.disabled {
+        pointer-events: none;
+      }
+      &.searched {
+        svg { opacity: 0; }
+        .close { opacity: 1; }
+      }
+      @include bpMedium {
+        right: scaleVal(12);
+        padding: scaleVal(8);
+      };
+      @include onHover {
+        color: $copper;
+      }
+      svg {
+        width: 100%;
+        width: 10px;
+        transition: opacity 300ms $authenticMotion;
+        @include bpMedium {
+          width: scaleVal(10);
+        }
+        &.close {
+          width: 12px;
+          position: absolute;
+          top: 50%;
+          opacity: 0;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @include bpMedium {
+            width: scaleVal(12);
+          }
+        }
+      }
+    }
+    input {
+      background: none;
+      width: 100%;
+      border: none;
+      padding: 12px 20px;
+      @include Body;
+      font-size: 16px;
+      @include bpMedium {
+        padding: scaleVal(12) scaleVal(20);
+        font-size: scaleVal(16);
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.feature-scroller {
+  background: white;
+  z-index: 2;
+  .overview-images {
+    position: relative;
+    z-index: 2;
+    @include bpMedium {
+      margin-top: -35vh;
+      .two {
+        opacity: 0;
+      }
+    }
+  }
+  .gradient-text {
+    line-height: inherit;
+  }
+}

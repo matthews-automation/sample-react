@@ -1,0 +1,60 @@
+.form-phone {
+  width: 100%;
+
+  &.half {
+    @include bpMedium {
+      $gap: scaleVal(4);
+      width: calc(50% - $gap);
+    }
+  }
+  &__input {
+    width: 100%;
+    display: flex;
+    border: 1px solid $black;
+    border-radius: 12px;
+    position: relative;
+    @include bpMedium {
+      border-radius: scaleVal(12);
+    }
+    input {
+      border: none;
+      width: 100%;
+      background: none;
+      border-left: 1px solid $black;
+      padding: 12px 20px 12px 12px;
+      @include Body;
+      @include bpMedium {
+        padding: scaleVal(12) scaleVal(20) scaleVal(12) scaleVal(12);
+      }
+    }
+    .form-select {
+      width: auto;
+      position: static;
+      margin-bottom: 0;
+      &__list-wrapper {
+        right: auto;
+        left: 0;
+      }
+      &__button {
+        padding: 0 12px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        border: none;
+        gap: 10px;
+        height: 100%;
+        @include bpMedium {
+          padding: 0 scaleVal(12);
+        }
+        .body-small {
+          font-size: 24px;
+          @include bpMedium {
+            font-size: scaleVal(24);
+          }
+        }
+        .caret {
+          width: 12px;
+        }
+      }
+    }
+  }
+}

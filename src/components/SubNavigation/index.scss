@@ -1,0 +1,97 @@
+.sub-navigation {
+  display: flex;
+  &.detail {
+    margin-top: -20px;
+    padding-left: 20px;
+    @include bpMedium {
+      margin-top: scaleVal(20, null, -1);
+      padding-left: scaleVal(48);
+    }
+    @include bpXLarge {
+      margin-top: scaleVal(48, null, -1);
+    }
+    .container {
+      @include bpXLarge {
+        padding-left: 0;
+      }
+    }
+    .row {
+      border-top: 1px solid $black-10;
+      max-width: 100%;
+      @include bpLarge {
+        padding-right: scaleVal(48);
+      }
+    }
+    .sub-navigation {
+      &__text, &__buttons {
+        @include bpLarge {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  .container {
+    @include bpMedium {
+      max-width: none;
+    }
+  }
+  .row {
+    background: $silverGradient;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-right: 0;
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+    @include bpMedium {
+      padding: scaleVal(20) scaleVal(48);
+      gap: scaleVal(24);   
+    }
+    @include bpLarge {
+      padding: scaleVal(24) scaleVal(48);
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: $headlineFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 1);
+    @include bpMedium {
+      gap: scaleVal(4);
+      font-size: scaleVal(14);   
+    }
+    @include bpLarge {
+      padding-left: 0;
+    }
+    &__more-text {
+      opacity: 0.5;
+    }
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+    min-width: 100%;
+    overflow-x: auto; 
+    @include bpMedium {
+      min-width: 0;
+      gap: scaleVal(4);
+    }
+    @include bpLarge {
+      padding-left: 0;
+    }
+    .sub-nav-button {
+      flex-shrink: 0;
+    }
+  }
+}

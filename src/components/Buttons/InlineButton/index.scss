@@ -1,0 +1,76 @@
+.inline-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  color: $black;
+  &.white {
+    color: $white;
+  }
+  .inline-button-wrap {
+    position: relative;
+    gap: 8px;
+    padding: 16px 0;
+    font-size: 14px;
+    @include bpMedium {
+      padding: scaleVal(24) 0;
+      font-size: scaleVal(14);
+      gap: scaleVal(8);
+    }
+    .button-text {
+      font-size: 14px;
+      opacity: 1;
+      transition: opacity 300ms $authenticMotion;
+      color: inherit;
+      @include bpMedium {
+        font-size: scaleVal(14);
+      }
+    }
+
+    .inline-arrow {
+      transition: transform 300ms $authenticMotion, color 300ms $authenticMotion;
+      width: 12px;
+      color: inherit;
+      @include bpMedium {
+        width: scaleVal(12);
+      }
+    }
+
+    .button-text.gradient {
+      position: absolute;
+      height: auto;
+      left: 0;
+      @include GradientText;
+      line-height: 1;
+      opacity: 0;
+      transition: opacity 300ms $authenticMotion; 
+    }
+
+    @include bpMedium {
+      gap: 12px;
+    }
+  }
+  @include onHover {
+    .button-text {
+      opacity: 0;
+    }
+
+    .button-text.gradient {
+      opacity: 1;
+    }
+
+    .inline-arrow {
+      color: $copper;
+      transform: translateX(4px);
+      opacity: 1;
+      &.down {
+        transform: translateY(4px);
+      }
+    }
+
+    .arrow-gradient {
+      opacity: 1;
+    }
+
+    transition: all 300ms $authenticMotion; 
+  }
+}

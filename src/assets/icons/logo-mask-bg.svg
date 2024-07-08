@@ -1,0 +1,44 @@
+<svg viewBox="0 0 43.53 51.61">
+  <defs>
+    <linearGradient id="uuid-37bacdf8-c99d-48cd-aaf2-c9b9ab4bc9c9" x1="0" y1="32.96" x2="38.57" y2=".6"
+      gradientTransform="translate(0 53.41) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8f3f1e" />
+      <stop offset=".1" stop-color="#9b4826" />
+      <stop offset=".18" stop-color="#ba5f3a" />
+      <stop offset=".28" stop-color="#ec855b" />
+      <stop offset=".28" stop-color="#f0885d" />
+      <stop offset=".36" stop-color="#eda78a" />
+      <stop offset=".43" stop-color="#ebc0ae" />
+      <stop offset=".49" stop-color="#eea181" />
+      <stop offset=".54" stop-color="#f0885d" />
+      <stop offset=".67" stop-color="#b35a35" />
+      <stop offset=".75" stop-color="#8f3f1e" />
+      <stop offset=".81" stop-color="#833a20" />
+      <stop offset=".92" stop-color="#642e24" />
+      <stop offset="1" stop-color="#512627" />
+    </linearGradient>
+    <linearGradient id="uuid-a4ba9f12-6d27-47e7-8239-f79ce77dabe8" x1="44.94" y1="14.27" x2="6.37" y2="46.63"
+      gradientTransform="translate(0 53.41) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#512627" />
+      <stop offset=".08" stop-color="#642e24" />
+      <stop offset=".19" stop-color="#833a20" />
+      <stop offset=".25" stop-color="#8f3f1e" />
+      <stop offset=".29" stop-color="#b35a35" />
+      <stop offset=".35" stop-color="#f0885d" />
+      <stop offset=".4" stop-color="#eea181" />
+      <stop offset=".45" stop-color="#ebc0ae" />
+      <stop offset=".52" stop-color="#eda78a" />
+      <stop offset=".61" stop-color="#f0885d" />
+      <stop offset=".62" stop-color="#ec855b" />
+      <stop offset=".77" stop-color="#ba5f3a" />
+      <stop offset=".88" stop-color="#9b4826" />
+      <stop offset="1" stop-color="#8f3f1e" />
+    </linearGradient>
+  </defs>
+  <g id="uuid-68347d54-a326-48f7-bba9-5e8431b1a270">
+    <path d="M25.82,43.53v-17.71l-8.08,9.63v16.17h16.17l9.63-8.08s-17.71,0-17.71,0Z"
+      style="fill:url(#uuid-37bacdf8-c99d-48cd-aaf2-c9b9ab4bc9c9); stroke-width:1px;" />
+    <path d="M17.71,17.74H0l9.63,8.08h16.2V9.63L17.74,0l-.03,17.74h0Z"
+      style="fill:url(#uuid-a4ba9f12-6d27-47e7-8239-f79ce77dabe8); stroke-width:1px;" />
+  </g>
+</svg>

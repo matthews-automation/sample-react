@@ -1,0 +1,279 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: $headerHeight;
+  z-index: 1000;
+  backface-visibility: hidden;
+  will-change: background-color;
+  display: flex;
+  align-items: center;
+  transition: color 400ms $authenticMotion, transform 400ms $authenticMotion;
+  @include bpMedium {
+    height: scaleVal(80);
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 400ms $authenticMotion;
+  }
+  &.light {
+    color: white;
+    .logo {
+      svg {
+        color: white;
+      }
+    }
+    .container {
+      .row {
+        .mobile-menu-button {
+          &__inner, &__inner::before, &__inner::after {
+            background-color: white;
+          }
+        }
+      }
+    }
+    .header__buttons {
+      .gradient-button {
+        color: white;
+      }
+      .search-button, .country-button {
+        color: white;
+      }
+    }
+  }
+  &.hovered {
+    &::before { opacity: 1; }
+    color: black;
+    .logo {
+      svg {
+        color: black;
+      }
+    }
+    .header__buttons {
+      .gradient-button, .search-button, .country-button {
+        color: black;
+      }
+    }
+  }
+  &.hide {
+    transform: translateY(-110%);
+  } 
+  &.visible {
+    transform: translateY(0);
+  }
+  &.scrolled {
+    color: black;
+    &::before, &::after { opacity: 1; }
+    .logo {
+      svg {
+        color: $black;
+      }
+    }
+    .header__buttons {
+      .gradient-button, .search-button, .country-button {
+        color: $black;
+      }
+    }
+    .container {
+      .row {
+        .mobile-menu-button {
+          &__inner, &__inner::before, &__inner::after {
+            background-color: black;
+          }
+        }
+      }
+    }
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    @include bpMedium {
+      gap: scaleVal(8);
+    }
+    .gradient-button {
+      display: none;
+      visibility: hidden;
+      @include bpLarge {
+        display: inline-flex;
+        visibility: visible;
+      }
+    }
+    .search-button, .country-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      padding: 0;
+      border: none;
+      width: 48px;
+      height: 48px;
+      color: $black;
+      transition: color 300ms $authenticMotion;
+      @include bpMedium {
+        width: scaleVal(48);
+        height: scaleVal(48);
+      }
+      @include onHover {
+        color: $copper;
+      }
+      svg {
+        width: 20px;
+        stroke-width: .5px;
+        @include bpMedium {
+          width: scaleVal(20);
+        }
+      }
+    }
+  }
+  .logo {
+    // flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    height: 48px;
+    padding: 0 0 2px 0;
+    margin-left: -10px;
+    max-width: 192px;
+    @include bpMedium {
+      max-width: 100%;
+      margin-left: scaleVal(18, null, -1);
+      display: flex;
+      width: scaleVal(192);
+      height: auto;
+      padding: 0;
+    }
+    svg {
+      width: 100%;
+      color: $black;
+      transition: color 400ms $authenticMotion;
+    }
+  }
+  .container {
+    padding: 0;
+    height: 100%;
+    .row {
+      align-items: center;
+      &.header--row {
+        height: 100%;
+        flex-wrap: nowrap;
+        position: relative;
+      }
+      .mobile-menu-button {
+        display: inline-flex;
+        overflow: visible;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 14px;
+        cursor: pointer;
+        border: 0;
+        background-color: transparent;
+        position: relative;
+        @include bpMedium {
+          padding: scaleVal(14);
+        }
+        @include bpLarge {
+          display: none;
+        }
+        &::after {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 50%;
+          left: 50%;
+          border-radius: 130px;
+          background: $lighter-gray;
+          transform: translate(-50%, -50%) scale(0);
+          transform-origin: center;
+          z-index: -1;
+          transition: transform 400ms $authenticMotion;
+        }
+        &__box {
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          @include bpMedium {
+            width: scaleVal(20);
+            height: scaleVal(20);
+          }
+        }
+        &__inner, &__inner::before, &__inner::after {
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          transition-timing-function: ease;
+          transition-duration: 150ms;
+          transition-property: transform;
+          background-color: black;
+          @include bpMedium {
+            height: scaleVal(2);
+          }
+        }
+        &__inner {
+          top: 50%;
+          display: block;
+          margin-top: -1px;
+          transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+          transition-duration: 75ms;
+          &::before, &::after {
+            display: block;
+            content: "";
+          }
+          &::before {
+            top: -6px;
+            transition: top 75ms 120ms ease, opacity 75ms ease;
+            @include bpMedium {
+              top: scaleVal(6, null, -1);
+            }
+          }
+          &::after {
+            bottom: -6px;
+            transition: bottom 75ms 120ms ease,
+              transform 75ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+              @include bpMedium {
+                bottom: scaleVal(6, null, -1);
+              }
+          }
+        }
+        &.is-active {
+          &__inner, &__inner::before, &__inner::after {
+            background-color: black;
+          }
+          &::after {
+            transform: translate(-50%, -50%) scale(1);
+          }
+          .mobile-menu-button__inner {
+            transform: rotate(45deg);
+            transition-delay: 120ms;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            background-color: $black;
+            &::before {
+              top: 0;
+              opacity: 0;
+              transition: top 75ms ease, opacity 75ms 120ms ease, color 400ms $authenticMotion;;
+              background-color: $black;
+            }
+            &::after {
+              bottom: 0;
+              transform: rotate(-90deg);
+              background-color: $black;
+              transition: bottom 75ms ease,
+                transform 75ms 120ms cubic-bezier(0.215, 0.61, 0.355, 1), color 400ms $authenticMotion;
+            }
+          }
+        }
+      }
+    }
+  }
+}

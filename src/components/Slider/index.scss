@@ -1,0 +1,169 @@
+.slider-container {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+  width: 100%;
+  .splide-custom {
+    width: 100%;
+    padding: 0;
+    &.no-peek {
+      .splide__track {
+        overflow: hidden;
+      }
+      .controls-box {
+        padding-right: 0;
+      }
+    }
+    &.no-page {
+      .controls-box {
+        display: none;
+      }
+    }
+    @include bpXLarge {
+      margin: 0 auto;
+    }
+
+    .splide__track {
+      // overflow: visible;
+    }
+
+    .logoImage {
+      top: 0;
+      right: 0;
+      height: 50px;
+      @include bpMedium {
+        height: scaleVal(150);
+      }
+      width: auto;
+    }
+
+    .splide__slide {
+      // opacity: 0;
+      // &.is-visible {
+      //   opacity: 1;
+      //   transition: opacity 0.5s ease-in-out;
+      // }
+      @include onHover {
+        .image {
+          img {
+            transform: translate(-50%, -50%) scale(1.1);
+          }
+        }
+      }
+    }
+
+    .controls-box {
+      padding-right: 0;
+      margin-top: 32px;
+      max-width: 100%;
+      @include bpMedium  {
+        padding-right: scaleVal(20);
+        margin-top: scaleVal(32);
+      }
+      @include bpLarge {
+        padding-right: scaleVal(48);
+        margin-top: scaleVal(48);
+      }
+
+      .splide__progress {
+        background-color: $lighter-gray;
+        width: 100%;
+        height: 1px;
+        margin-right: 20px;
+        @include bpMedium {
+          margin-right: scaleVal(20);
+          height: scaleVal(1);
+        }
+
+        .splide__progress__bar {
+          top: 0;
+          left: 0;
+          height: 1px;
+          background-color: black;
+          transition: width 0.2s ease-in-out;
+        }
+      }
+
+      .splide__arrows {
+        gap: 8px;
+        @include bpMedium {
+          gap: scaleVal(8);
+        }
+        .splide__arrow {
+          display: flex;
+          width: 48px;
+          height: 48px;
+          padding: 12px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 100px;
+          background: black;
+          border-style: none;
+          @include bpMedium {
+            width: scaleVal(48);
+            height: scaleVal(48);
+            padding: scaleVal(12);
+            gap: scaleVal(8);
+          }
+          &.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+          }
+          .ripple {
+            width: 48px;
+            height: 48px;
+            border-radius: 100px;
+            background: $copperGradient;
+            clip-path: circle(0% at 50% 50%); /* Remove vendor prefix */
+            transition: all ease-in-out 0.3s;
+            pointer-events: none;
+            @include bpMedium {
+              width: scaleVal(48);
+              height: scaleVal(48);
+            }
+          }
+
+          svg {
+            position: relative;
+            width: 10px;
+            height: 10px;
+            z-index: 100;
+            color: white;
+            transition: all ease-in-out 0.3s;
+            @include bpMedium {
+              width: scaleVal(10);
+              height: scaleVal(10);
+            }
+          }
+          @include onHover {
+            .ripple {
+              clip-path: circle(100% at 50% 50%);
+            }
+            svg {
+              color: black;
+            }
+          }
+        }
+      }
+    }
+    .splide-progress {
+      width: 100%;
+      background: $black-20;
+      height: 1px;
+      margin-right: 24px;
+      position: relative;
+      @include bpMedium {
+        margin-right: scaleVal(24); 
+      }
+      &__bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: $black;
+        height: 1px;
+        transition: width 400ms $authenticMotion;
+      }
+    }
+  }
+}

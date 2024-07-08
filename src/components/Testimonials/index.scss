@@ -1,0 +1,120 @@
+.testimonials {
+  overflow: hidden;
+  &.black {
+    background-color: black;
+    color: white;
+    
+    .slider-container .splide-custom .controls-box {
+
+      .splide-progress {
+        background-color: rgba(255, 255, 255, 0.3);
+        &__bar {
+          background: $white;
+        }
+      }
+
+      button {
+        background-color: #ffffff40;
+        &.is-active {
+          background-color: #ffffff;
+        }
+      }
+      .splide__progress {
+        background-color: rgba(255, 255, 255, 0.3);
+        .splide__progress__bar  {
+          background-color: white;
+        }
+      }
+      .splide__arrows .wrap .splide__arrow {
+        background: white;
+        svg {
+          color: black;
+        }
+      }
+    }
+  }
+  &.white {
+    background-color: $lighter-gray;
+    .slider-container .splide-custom .controls-grid .controls {
+      .splide__progress {
+        background-color: rgb(189 189 189 / 48%);
+      }
+    }
+  }
+  .transparent-container {
+    padding: 20px;
+    &.single {
+      padding-bottom: 100px;
+    }
+    @include bpMedium {
+      padding: scaleVal(48);
+      &.single {
+        padding-bottom: scaleVal(144);
+      }
+    }
+
+    .logo-outline {
+      top: 20px;
+      right: 20px;
+      display: none;
+      @include bpMedium {
+        display: block;
+        height: scaleVal(210);
+        width: scaleVal(210);
+        right: scaleVal(48);
+        top: scaleVal(48); 
+      }
+    }
+    .slider-container {
+      margin: 0;
+      .splide-custom {
+        padding: 0;
+        .splide__track{
+          margin-top: 40px;
+          @include bpMedium {
+            margin-top: scaleVal(90);
+          }
+        }
+      }
+      .testimonial-focus {
+        display: flex;
+        padding: 40px 0px 0px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        @include bpMedium {
+          padding: scaleVal(40) 0 0 scaleVal(20);
+          gap: scaleVal(16);
+        }
+        .subtitle-2 {
+          font-family: $bodyFont;
+          font-weight: 500;
+          font-size: 28px;
+          line-height: 1.2;
+          @include bpMedium {
+            font-size: scaleVal(40);
+          }
+        }
+        .quote::before {
+          content: '"';
+          margin-left: -10px;
+          overflow-x: visible;
+          @include bpMedium {
+            margin-left: scaleVal(10, null, -1);
+          }
+        }
+        .quote::after {
+          content: '"';
+        }
+        .attribution {
+          color:rgb(124, 124, 124);
+          font-size: 14px;
+          @include bpMedium {
+            font-size: scaleVal(14);
+          }
+        }
+      }
+    }
+  }
+}

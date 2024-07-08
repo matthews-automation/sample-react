@@ -1,0 +1,21 @@
+.form-text-area {
+  width: 100%;
+  textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 165px;
+    width: 100%;
+    padding: 12px 20px 12px 24px;
+    border: 1px solid $black;
+    border-radius: 12px;
+    @include Body;
+    @include bpMedium {
+      padding: scaleVal(12) scaleVal(20) scaleVal(12) scaleVal(24);
+      border-radius: scaleVal(12);
+    }
+    &::placeholder {
+      color: $gray;
+      text-transform: capitalize;
+    }
+  }
+}

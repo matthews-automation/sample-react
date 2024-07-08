@@ -1,0 +1,27 @@
+.form-input {
+  position: relative;
+  width: 100%;
+
+  &.half {
+    @include bpMedium {
+      $gap: scaleVal(4);
+      width: calc(50% - $gap);
+    }
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px 20px 12px 24px;
+    border: 1px solid $black;
+    border-radius: 12px;
+    @include Body;
+    @include bpMedium {
+      padding: scaleVal(12) scaleVal(20) scaleVal(12) scaleVal(24);
+      border-radius: scaleVal(12);
+    }
+    &::placeholder {
+      color: $gray;
+      text-transform: capitalize;
+    }
+  }
+}

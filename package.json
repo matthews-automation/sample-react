@@ -1,39 +1,47 @@
 {
-  "name": "sample-react",
+  "name": "matthews",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^6.1.5",
-    "@testing-library/react": "^14.1.2",
-    "@testing-library/user-event": "^14.5.1",
-    "babel-preset-react-app": "^10.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "serve": "^14.2.1"
-  },
   "scripts": {
-    "start": "node sammy.js; serve -s _static -l tcp://0.0.0.0:$PORT -n",
-    "build": "rm -r _static 2>/dev/null; node sammy.js; react-scripts build && mv build _static",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start:wp": "cd ../wp/ && docker-compose up",
+    "dev": "next dev -p 8080",
+    "build": "NODE_ENV=test && next build",
+    "generate": "faust generatePossibleTypes",
+    "start": "npm run dev",
+    "lint": "next lint",
+    "deploy": "./deploy.sh",
+    "deploy:wp": "cd ../wp && ./deploy.sh",
+    "deploy:plugins": "cd ../wp && ./deploy-plugins.sh"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "@splinetool/loader": "^1.4.9",
+    "@splinetool/react-spline": "^3.1.1",
+    "@splinetool/runtime": "^1.8.0",
+    "classnames": "^2.5.1",
+    "gsap": "file:gsap-bonus.tgz",
+    "libphonenumber-js": "^1.11.3",
+    "mitt": "^3.0.1",
+    "next": "14.2.3",
+    "next-intl": "^3.14.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hyphen": "^1.4.0",
+    "react-transition-group": "^4.4.5",
+    "sharp": "^0.33.4",
+    "ua-parser-js": "^1.0.38"
   },
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.23.4"
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-transition-group": "^4.4.10",
+    "@types/ua-parser-js": "^0.7.39",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "sass": "^1.77.1",
+    "typescript": "^5"
   }
 }

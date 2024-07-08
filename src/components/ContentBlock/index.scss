@@ -1,0 +1,99 @@
+.content-block {
+  overflow: hidden;
+  .heading-lockup {
+    padding-top: 0;
+    &.col-md-12 {
+      @include bpMedium {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        .copy-col {
+          max-width: 50%;
+        }
+      }
+    }
+    &.col-md-4 {
+      @include bpMedium {
+        padding-right: scaleVal(24);
+        .body {
+          max-width: scaleVal(318);
+        }
+      }
+    }
+  }
+  .content-block__card {
+    &:not(.card--2) {
+      .inline-video {
+        &__controls {
+          @include bpMedium {
+            padding: scaleVal(8) scaleVal(12) scaleVal(12);
+          }
+          .progress {
+            @include bpMedium {
+              padding: scaleVal(2) 0;
+              margin: scaleVal(4) 0;
+            }
+          }
+          .time {
+            @include bpMedium {
+              font-size: scaleVal(12);
+            }
+          }
+          .icon-button {
+            @include bpMedium {
+              width: scaleVal(24);
+              height: scaleVal(24);
+            }
+          }
+        }
+      }
+    }
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    @include bpMedium {
+      flex-wrap: nowrap;
+    }
+    .content-block__card {
+      @include bpMedium {
+        flex: 1 0 0;
+      }
+    }
+  }
+  .col-md-8 {
+    .card-container {
+      @include bpMedium {
+        margin-top: 0;
+      }
+    }
+  }
+  .content-height-calculated {
+    height: auto;
+    @include bpMedium {
+      height: var(--max-height);
+    }
+  }
+
+  .subtitle-5{
+      margin-top: 20px;
+    @include bpMedium {
+      margin-top: scaleVal(20);
+    }
+  }
+  .body-small {
+    margin-top: 12px;
+    @include bpMedium {
+      margin-top: scaleVal(12);
+
+    }
+  }
+  &__card {
+    .subtitle-5 {
+      margin-top: 20px;
+      @include bpMedium {
+        margin-top: scaleVal(20);
+      }
+    }
+  }
+}

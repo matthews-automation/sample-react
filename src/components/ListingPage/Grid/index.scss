@@ -1,0 +1,39 @@
+.listing-page-grid {
+  width: 100%;
+  @include bpMedium {
+    margin: 0 scaleVal(48);
+  }
+  &__row {
+    display: flex;
+    min-width: 100%;
+    margin: 0 -8px;
+    flex-wrap: wrap;
+    gap: 40px 0;
+    @include bpMedium {
+      margin: 0 -12px;
+      gap: scaleVal(72) 0;
+    }
+    .no-results {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 0 120px;
+      @include bpMedium {
+        padding: scaleVal(140) 0 scaleVal(192);
+        margin-bottom: scaleVal(72);
+      }
+      .copy {
+        margin-top: 20px;
+        text-align: center;
+        @include bpMedium {
+          margin-top: scaleVal(20);
+          max-width: scaleVal(390);
+        }
+        .eyebrow {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}

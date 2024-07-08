@@ -1,0 +1,96 @@
+.accordion-item {
+  border-bottom: 1px solid #0000001b;
+  padding: 24px 0px;
+  display: grid !important;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
+  transition: background-color 400ms $authenticMotion;
+  cursor: pointer;
+  @include bpMedium {
+    padding: scaleVal(28) scaleVal(24);
+  }
+  .title {
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+    color: $black;
+    @include bpMedium {
+      font-size: scaleVal(20);
+    }
+  }
+  .menuTitle {
+    font-weight: 600;
+  }
+  .accordion-button {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    background: var(--Light-Gray, #F5F5F5);
+    transition: background-color 400ms $authenticMotion;
+    svg {
+      width: 10px;
+      height: 10px;
+      @include bpMedium {
+        width: scaleVal(10);
+        height: scaleVal(10);
+      }
+    }
+    @include bpMedium {
+      width: scaleVal(24);
+      height: scaleVal(24);
+    }
+    &.clicked {
+      background: black;
+      svg {
+        color: white;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  @include onHover {
+    background-color: #F5F5F5; 
+    .accordion-button {
+      background-color: #0000001A;
+      &.clicked {
+        background-color: black; 
+      }
+    }
+  }
+  &.clicked {
+    @include onHover {
+      background-color: transparent;
+    }
+  }
+  .more-info {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 400ms;
+    p { 
+      opacity: 0;
+      transform: translateY(5px); 
+      transition: opacity 600ms ease-in, transform 400ms ease-in; 
+    }
+  
+    .animate-button { 
+      opacity: 0;
+      transform: translateY(20px);  
+      transition: opacity 200ms ease-in, transform 200ms ease-in 200ms; 
+    }
+    .content {
+      overflow: hidden;
+    }
+    &.clicked {
+      grid-template-rows: 1fr;
+      p, .animate-button { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

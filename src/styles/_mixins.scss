@@ -1,0 +1,163 @@
+@use "sass:color";
+@use "sass:math";
+@import "./variables";
+
+// --------------------
+// New! Scaling logic
+
+@function scaleVal($value, $min:null, $invert: 1) {
+  @if $min != null {
+    $minSize: $min + px;
+    @if $invert == 1 {
+      @return max($minSize, calc(($value / var(--target)) * 100 * 1vw));
+    } @else {
+      @return min($minSize, calc(($value / var(--target)) * 100 * -1vw));
+    }
+  } @else {
+    @return calc((($value / var(--target)) * 100 * 1vw) * $invert); 
+  }
+}
+
+// --------------------
+// Color
+
+@mixin GradientText {
+  background: $copperGradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.25; // font sits on the baseline needed to remove clipping.
+}
+
+// --------------------
+// Breakpoints
+
+@mixin media-query($media-query) {
+  $breakpoint-found: false;
+
+  @each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $declaration: nth($breakpoint, 2);
+    @if $media-query == $name and $declaration {
+      $breakpoint-found: true;
+      @media screen and #{$declaration} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin bpSmall {
+  @media screen and (max-width: $breakpointSValue) {
+    @content;
+  }
+}
+
+@mixin bpMedium {
+  @media screen and (min-width: $breakpointMValue) {
+    @content;
+  }
+}
+
+@mixin bpLarge {
+  @media screen and (min-width: $breakpointLValue) {
+    @content;
+  }
+}
+
+@mixin ListingPageBP {
+  @media screen and (min-width: 1130px) {
+    @content;
+  }
+}
+
+@mixin bpXLarge {
+  @media screen and (min-width: $breakpointXLValue) {
+    @content;
+  }
+}
+
+@mixin mobileOnly {
+  @media screen and (max-width: #{$breakpointMValue - 1px}) {
+    @content;
+  }
+}
+@mixin HeaderLarge {
+  @media screen and (min-width: 1100px) {
+    @content;
+  }
+}
+
+
+// --------------------
+// Buttons
+
+@mixin onHover {
+  &:hover {
+    body:not(body.touch) & {
+      @content;
+    }
+  }
+
+  &:focus-visible {
+    @content;
+  }
+
+  &.hover {
+    @content;
+  }
+}
+
+@mixin notResizing {
+  body:not(body.resizing) & {
+    @content;
+  }
+}
+
+@mixin focus-visible {
+  @supports not selector(:focus-visible) {
+    &:focus {
+      @content;
+    }
+  }
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin GradientUnderline($widthOffset: 0px, $bottom: 4px, $active: 0) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    height: 2px;
+    width: calc(100% - #{$widthOffset});
+    background: $copperGradient;
+    bottom: #{$bottom};
+    left: 50%;
+    transform-origin: left center;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 250ms $authenticMotion;
+  }
+  @include onHover {
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+  &.hovered, &.active {
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+}
+
+
+@mixin Body {
+  font-family: $bodyFont;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  @include bpMedium {
+    font-size: scaleVal(16);
+  }
+}
